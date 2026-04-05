@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "trufflehog",
+    "command": "trufflehog",
+    "description": "Find and verify credentials in your codebase",
+    "repo_url": "https://github.com/trufflesecurity/trufflehog",
+    "licence": "AGPL-3.0",
+    "packageManager": "mise",
+    "category": "security"
+  }
+]

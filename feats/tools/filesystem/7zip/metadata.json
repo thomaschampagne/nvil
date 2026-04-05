@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "7zip",
+    "command": "7z",
+    "description": "File archiver with a high compression ratio",
+    "repo_url": "https://github.com/ip7z/7zip",
+    "licence": "LGPL-2.1",
+    "packageManager": "mise",
+    "category": "filesystem"
+  }
+]

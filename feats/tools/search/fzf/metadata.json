@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "fzf",
+    "command": "fzf",
+    "description": "A command-line fuzzy finder",
+    "repo_url": "https://github.com/junegunn/fzf",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "search"
+  }
+]

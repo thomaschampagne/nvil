@@ -1,0 +1,69 @@
+# --- Pre Defined LSP ---
+# html/css
+[language-server.emmet-language-server]
+command = "emmet-ls"
+args = ["--stdio"]
+
+# XML
+[language-server.xml-language-server]
+command = "lemminx"
+
+# --- BASH ---
+[[language]]
+name = "bash"
+language-servers = ["bash-language-server"]
+indent = { tab-width = 2, unit = "  " }
+# shfmt: 2-space indent (Google Shell Style Guide), binary ops start next line (-bn), indent switch cases (-ci), space after redirects (-sr)
+formatter = { command = "shfmt", args = ["-i", "2", "-bn", "-ci", "-sr"] }
+auto-format = true
+
+# --- MD ---
+[[language]]
+name = "markdown"
+formatter = { command = "dprint", args = ["fmt", "--stdin", "markdown"] }
+auto-format = true
+
+# --- TOML ---
+[[language]]
+name = "toml"
+formatter = { command = "dprint", args = ["fmt", "--stdin", "toml"] }
+auto-format = true
+
+# --- JSON ---
+[[language]]
+name = "json"
+formatter = { command = "dprint", args = ["fmt", "--stdin", "json"] }
+auto-format = true
+
+# --- YAML ---
+[[language]]
+name = "yaml"
+formatter = { command = "dprint", args = ["fmt", "--stdin", "yaml"] }
+auto-format = true
+
+# --- XML/HTML ---
+[[language]]
+name = "xml"
+formatter = { command = "dprint", args = ["fmt", "--stdin", "xml"] }
+language-servers = ["xml-language-server", "emmet-language-server"]
+auto-format = true
+
+[[language]]
+name = "html"
+file-types = ["html", "htm"]
+formatter = { command = "dprint", args = ["fmt", "--stdin", "html"] }
+language-servers = ["vscode-html-language-server", "emmet-language-server"]
+auto-format = true
+
+# --- CSS/SCSS ---
+[[language]]
+name = "css"
+formatter = { command = "dprint", args = ["fmt", "--stdin", "css"] }
+language-servers = ["vscode-css-language-server", "emmet-language-server"]
+auto-format = true
+
+[[language]]
+name = "scss"
+formatter = { command = "dprint", args = ["fmt", "--stdin", "scss"] }
+language-servers = ["vscode-css-language-server", "emmet-language-server"]
+auto-format = true

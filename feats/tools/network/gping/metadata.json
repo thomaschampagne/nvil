@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "gping",
+    "command": "gping",
+    "description": "Ping, but with a graph",
+    "repo_url": "https://github.com/orf/gping",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "network"
+  }
+]

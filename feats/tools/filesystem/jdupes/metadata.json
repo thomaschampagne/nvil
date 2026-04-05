@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "jdupes",
+    "command": "jdupes",
+    "description": "A powerful duplicate file finder and an enhanced fork of fdupes",
+    "repo_url": "https://github.com/jbruchon/jdupes",
+    "licence": "MIT",
+    "packageManager": "brew",
+    "category": "filesystem"
+  }
+]

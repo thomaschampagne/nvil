@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-go/master/schema/compose-spec.json
+services:
+  dev-full:
+    container_name: dev-full
+    image: dev-full:latest
+    hostname: dev-full
+    restart: unless-stopped
+    environment:
+      - NVIL_GIT_USER_NAME="Thomas Champagne"
+      - NVIL_GIT_USER_EMAIL="th.champagne@gmail.com"
+      - NVIL_DEFAULT_EDITOR=hx
+      - TZ=Europe/Paris
+    working_dir: /workspace
+    volumes:
+      - ..:/workspace:delegated
+    network_mode: host
+    cap_add:
+      - NET_RAW
+    stdin_open: true
+    tty: true
+
+volumes:
+  home-volume:
+    name: dev-full-home

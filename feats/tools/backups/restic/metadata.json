@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "restic",
+    "command": "restic",
+    "description": "Fast, secure, efficient backup program",
+    "repo_url": "https://github.com/restic/restic",
+    "licence": "BSD-2-Clause",
+    "packageManager": "mise",
+    "category": "backups"
+  }
+]

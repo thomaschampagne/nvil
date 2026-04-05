@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "git-delta",
+    "command": "delta",
+    "description": "A syntax-highlighting pager for git, diff, grep, and blame output",
+    "repo_url": "https://github.com/dandavison/delta",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "development"
+  }
+]

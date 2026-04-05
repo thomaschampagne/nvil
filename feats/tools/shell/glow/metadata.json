@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "glow",
+    "command": "glow",
+    "description": "Render markdown on the CLI, with pizzazz",
+    "repo_url": "https://github.com/charmbracelet/glow",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "shell"
+  }
+]

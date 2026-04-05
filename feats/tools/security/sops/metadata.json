@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "sops",
+    "command": "sops",
+    "description": "Simple and flexible tool for managing secrets",
+    "repo_url": "https://github.com/getsops/sops",
+    "licence": "MPL-2.0",
+    "packageManager": "mise",
+    "category": "security"
+  }
+]

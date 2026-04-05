@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "miniserve",
+    "command": "miniserve",
+    "description": "For when you really just want to serve some files over HTTP right now",
+    "repo_url": "https://github.com/svenstaro/miniserve",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "development"
+  }
+]

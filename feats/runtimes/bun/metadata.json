@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "bun",
+    "command": "bun",
+    "description": "Fast all-in-one JavaScript runtime and toolkit",
+    "repo_url": "https://github.com/oven-sh/bun",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "runtimes"
+  }
+]

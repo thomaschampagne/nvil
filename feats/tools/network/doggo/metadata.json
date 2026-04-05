@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "doggo",
+    "command": "doggo",
+    "description": "Modern DNS client for humans",
+    "repo_url": "https://github.com/mr-karan/doggo",
+    "licence": "GPL-3.0",
+    "packageManager": "mise",
+    "category": "network"
+  }
+]

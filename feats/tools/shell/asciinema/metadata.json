@@ -1,0 +1,22 @@
+[
+  {
+    "scope": "pick",
+    "name": "asciinema",
+    "command": "asciinema",
+    "description": "Terminal session recorder, streamer and player",
+    "repo_url": "https://github.com/asciinema/asciinema",
+    "licence": "GPL-3.0",
+    "packageManager": "mise",
+    "category": "shell"
+  },
+  {
+    "scope": "pick",
+    "name": "agg",
+    "command": "agg",
+    "description": "Asciicast to GIF converter",
+    "repo_url": "https://github.com/asciinema/agg",
+    "licence": "GPL-3.0",
+    "packageManager": "mise",
+    "category": "shell"
+  }
+]

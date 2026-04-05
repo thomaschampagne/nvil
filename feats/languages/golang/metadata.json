@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "go",
+    "command": "go",
+    "description": "Open source programming language to build simple/reliable/efficient software",
+    "repo_url": "https://github.com/golang/go",
+    "licence": "BSD-3-Clause",
+    "packageManager": "mise",
+    "category": "language"
+  }
+]

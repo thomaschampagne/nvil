@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "age",
+    "command": "age",
+    "description": "Simple, modern, and secure encryption tool",
+    "repo_url": "https://github.com/FiloSottile/age",
+    "licence": "BSD-3-Clause",
+    "packageManager": "mise",
+    "category": "security"
+  }
+]

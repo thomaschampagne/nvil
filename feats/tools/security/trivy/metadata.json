@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "trivy",
+    "command": "trivy",
+    "description": "Find and fix container misconfigurations, IaC issues, and vulnerabilities",
+    "repo_url": "https://github.com/aquasecurity/trivy",
+    "licence": "Apache-2.0",
+    "packageManager": "mise",
+    "category": "security"
+  }
+]

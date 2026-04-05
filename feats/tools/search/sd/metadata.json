@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "sd",
+    "command": "sd",
+    "description": "Intuitive find and replace CLI (sed alternative)",
+    "repo_url": "https://github.com/chmln/sd",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "search"
+  }
+]

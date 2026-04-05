@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "serpl",
+    "command": "serpl",
+    "description": "A simple terminal UI for search and replace, ala VS Code",
+    "repo_url": "https://github.com/yassinebridi/serpl",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "development"
+  }
+]

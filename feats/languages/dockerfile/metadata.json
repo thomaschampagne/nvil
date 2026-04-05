@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "dockerfile-language-server-nodejs",
+    "command": "dockerfile-language-server-nodejs",
+    "description": "Dockerfile language server for syntax highlighting and validation",
+    "repo_url": "https://github.com/rcjsuen/dockerfile-language-server-nodejs",
+    "licence": "MIT",
+    "packageManager": "pnpm",
+    "category": "language-server"
+  }
+]

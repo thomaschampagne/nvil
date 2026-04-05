@@ -1,0 +1,32 @@
+[
+  {
+    "scope": "pick",
+    "name": "typescript",
+    "command": "tsc",
+    "description": "Typed superset of JavaScript that compiles to plain JavaScript",
+    "repo_url": "https://github.com/microsoft/TypeScript",
+    "licence": "Apache-2.0",
+    "packageManager": "pnpm",
+    "category": "language"
+  },
+  {
+    "scope": "pick",
+    "name": "typescript-language-server",
+    "command": "typescript-language-server",
+    "description": "TypeScript/JavaScript language server using tsserver",
+    "repo_url": "https://github.com/typescript-language-server/typescript-language-server",
+    "licence": "MIT",
+    "packageManager": "pnpm",
+    "category": "language-server"
+  },
+  {
+    "scope": "pick",
+    "name": "prettier",
+    "command": "prettier",
+    "description": "Opinionated code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML",
+    "repo_url": "https://github.com/prettier/prettier",
+    "licence": "MIT",
+    "packageManager": "pnpm",
+    "category": "formatter"
+  }
+]

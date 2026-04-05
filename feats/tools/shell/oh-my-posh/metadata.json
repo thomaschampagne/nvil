@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "oh-my-posh",
+    "command": "oh-my-posh",
+    "description": "The most customisable and low-latency cross platform/shell prompt renderer",
+    "repo_url": "https://github.com/JanDeDobbeleer/oh-my-posh",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "shell"
+  }
+]

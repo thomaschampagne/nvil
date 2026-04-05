@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "fd",
+    "command": "fd",
+    "description": "A simple, fast and user-friendly alternative to find",
+    "repo_url": "https://github.com/sharkdp/fd",
+    "licence": "Apache-2.0",
+    "packageManager": "mise",
+    "category": "search"
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "lnav",
+    "command": "lnav",
+    "description": "Log file navigator with format detection and color-coded output",
+    "repo_url": "https://github.com/tstack/lnav",
+    "licence": "BSD-2-Clause",
+    "packageManager": "mise",
+    "category": "shell"
+  }
+]

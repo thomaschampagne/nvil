@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "tlrc",
+    "command": "tldr",
+    "description": "Official tldr client written in Rust",
+    "repo_url": "https://github.com/tldr-pages/tlrc",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "productivity"
+  }
+]

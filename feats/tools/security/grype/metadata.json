@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "grype",
+    "command": "grype",
+    "description": "Vulnerability scanner for container images and filesystems",
+    "repo_url": "https://github.com/anchore/grype",
+    "licence": "Apache-2.0",
+    "packageManager": "mise",
+    "category": "security"
+  }
+]

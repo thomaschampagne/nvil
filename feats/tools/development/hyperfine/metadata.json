@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "hyperfine",
+    "command": "hyperfine",
+    "description": "A command-line benchmarking tool",
+    "repo_url": "https://github.com/sharkdp/hyperfine",
+    "licence": "Apache-2.0",
+    "packageManager": "mise",
+    "category": "development"
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "duf",
+    "command": "duf",
+    "description": "Disk Usage/Free Utility - a better df alternative",
+    "repo_url": "https://github.com/muesli/duf",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "filesystem"
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "xan",
+    "command": "xan",
+    "description": "Terminal multiplexer with batteries included",
+    "repo_url": "https://github.com/medialab/xan",
+    "licence": "Unlicense",
+    "packageManager": "mise",
+    "category": "productivity"
+  }
+]

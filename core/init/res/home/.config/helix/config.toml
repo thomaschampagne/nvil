@@ -1,0 +1,73 @@
+# Active Theme
+theme = "tokyonight"
+
+[editor]
+shell = ["sh", "-c"] # Force usage of sh for running commands
+bufferline = "always" # Show open buffers as tabs at the top (like IDE tabs)
+line-number = "relative" # Use relative line numbers (easier for vertical jumps like 10j)
+cursorline = true # Highlight the current line for better visibility
+soft-wrap.enable = true # Enable visual line wrapping for long lines
+auto-format = true
+trim-final-newlines = true
+trim-trailing-whitespace = true
+
+# Auto-save configuration (Updated according to latest docs)
+[editor.auto-save]
+focus-lost = true # Save when the terminal loses focus (Alt-Tab)
+after-delay.enable = true # Enable time-based auto-save
+after-delay.timeout = 1000 # Save ms of inactivity (VSCode default is 2 seconds)
+
+[editor.statusline]
+right = [
+  "diagnostics",
+  "selections",
+  "register",
+  "position-percentage",
+  "position",
+  "file-encoding",
+  "file-line-ending",
+  "file-type",
+]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+left = ["mode", "spinner", "version-control"]
+center = ["file-name", "file-modification-indicator"]
+
+# Visual helpers
+[editor.indent-guides]
+render = true # Show vertical indentation lines for code blocks
+
+[editor.cursor-shape]
+insert = "bar" # Vertical bar cursor in insert mode (standard editor behavior)
+normal = "block" # Block cursor in normal mode (Vim-style)
+select = "underline" # Underline cursor when in selection mode
+
+[editor.whitespace.render]
+space = "all" # White-spaces dots
+newline = "all"
+
+[editor.file-picker]
+hidden = false # Show dot files/folders in file picker
+
+[keys.normal]
+# Opens lazygit in a new temporary buffer and redraws Helix after closing
+"C-g" = [
+  ":new",
+  ":insert-output lazygit",
+  ":set mouse false",
+  ":set mouse true",
+  ":buffer-close!",
+  ":redraw",
+  ":reload-all",
+]
+
+# Comment current line and move down
+"C-c" = ["toggle_comments", "move_line_down"]
+# Move line down/up
+"A-j" = ["extend_to_line_bounds", "delete_selection", "move_line_down", "paste_after"]
+"A-k" = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+
+[keys.insert]
+# Simple 'jj' sequence to quickly escape back to normal mode
+j = { j = "normal_mode" }

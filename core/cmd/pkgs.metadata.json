@@ -1,0 +1,682 @@
+[
+  {
+    "scope": "core",
+    "name": "sudo",
+    "command": "sudo",
+    "description": "Execute a command as another user",
+    "repo_url": "https://www.sudo.ws/",
+    "licence": "ISC",
+    "packageManager": "dnf",
+    "category": "system"
+  },
+  {
+    "scope": "core",
+    "name": "hostname",
+    "command": "hostname",
+    "description": "Show or set the system's host name",
+    "repo_url": "https://src.fedoraproject.org/rpms/hostname",
+    "licence": "GPL-2.0",
+    "packageManager": "dnf",
+    "category": "system"
+  },
+  {
+    "scope": "core",
+    "name": "coreutils",
+    "command": "coreutils",
+    "description": "Basic file, shell and text manipulation utilities",
+    "repo_url": "https://www.gnu.org/software/coreutils/",
+    "licence": "GPL-3.0",
+    "packageManager": "dnf",
+    "category": "system"
+  },
+  {
+    "scope": "core",
+    "name": "ncurses",
+    "command": "ncurses",
+    "description": "A terminal handling library",
+    "repo_url": "https://invisible-island.net/ncurses/",
+    "licence": "MIT",
+    "packageManager": "dnf",
+    "category": "system"
+  },
+  {
+    "scope": "core",
+    "name": "libicu",
+    "command": "icu",
+    "description": "International Components for Unicode",
+    "repo_url": "https://github.com/unicode-org/icu",
+    "licence": "MIT",
+    "packageManager": "dnf",
+    "category": "system"
+  },
+  {
+    "scope": "core",
+    "name": "util-linux",
+    "command": "util-linux",
+    "description": "Collection of basic system utilities",
+    "repo_url": "https://github.com/util-linux/util-linux",
+    "licence": "GPL-2.0",
+    "packageManager": "dnf",
+    "category": "system"
+  },
+  {
+    "scope": "core",
+    "name": "shadow-utils",
+    "command": "shadow-utils",
+    "description": "Utilities for managing shadow password files and user/group accounts",
+    "repo_url": "https://github.com/shadow-maint/shadow",
+    "licence": "BSD-3-Clause",
+    "packageManager": "dnf",
+    "category": "system"
+  },
+  {
+    "scope": "core",
+    "name": "strace",
+    "command": "strace",
+    "description": "Trace system calls and signals",
+    "repo_url": "https://github.com/strace/strace",
+    "licence": "LGPL-2.1",
+    "packageManager": "dnf",
+    "category": "monitoring"
+  },
+  {
+    "scope": "core",
+    "name": "xclip",
+    "command": "xclip",
+    "description": "Command line interface to X selections (clipboard)",
+    "repo_url": "https://github.com/astrand/xclip",
+    "licence": "GPL-2.0",
+    "packageManager": "dnf",
+    "category": "system"
+  },
+  {
+    "scope": "core",
+    "name": "xsel",
+    "command": "xsel",
+    "description": "Access X clipboard from the command line",
+    "repo_url": "https://github.com/kfish/xsel",
+    "licence": "GPL-2.0",
+    "packageManager": "dnf",
+    "category": "system"
+  },
+  {
+    "scope": "core",
+    "name": "wl-clipboard",
+    "command": "wl-copy",
+    "description": "Command-line copy/paste utilities for Wayland",
+    "repo_url": "https://github.com/bugaevc/wl-clipboard",
+    "licence": "GPL-3.0",
+    "packageManager": "dnf",
+    "category": "system"
+  },
+  {
+    "scope": "core",
+    "name": "gettext",
+    "command": "gettext",
+    "description": "GNU internationalization and localization libraries",
+    "repo_url": "https://www.gnu.org/software/gettext/",
+    "licence": "GPL-3.0",
+    "packageManager": "dnf",
+    "category": "system"
+  },
+  {
+    "scope": "core",
+    "name": "dos2unix",
+    "command": "dos2unix",
+    "description": "Convert text between DOS, UNIX, and Mac formats",
+    "repo_url": "https://waterlan.home.xs4all.nl/dos2unix.html",
+    "licence": "BSD-2-Clause",
+    "packageManager": "dnf",
+    "category": "system"
+  },
+  {
+    "scope": "core",
+    "name": "less",
+    "command": "less",
+    "description": "Terminal pager program used to view the contents of a text file one screen at a time",
+    "repo_url": "https://www.greenwoodsoftware.com/less/",
+    "licence": "GPL-3.0",
+    "packageManager": "dnf",
+    "category": "system"
+  },
+  {
+    "scope": "core",
+    "name": "tree",
+    "command": "tree",
+    "description": "Display directories as trees",
+    "repo_url": "https://gitlab.com/OldManProgrammer/unix-tree",
+    "licence": "GPL-2.0",
+    "packageManager": "dnf",
+    "category": "system"
+  },
+  {
+    "scope": "core",
+    "name": "which",
+    "command": "which",
+    "description": "Shows the full path of shell commands",
+    "repo_url": "https://savannah.gnu.org/projects/which/",
+    "licence": "GPL-3.0",
+    "packageManager": "dnf",
+    "category": "system"
+  },
+  {
+    "scope": "core",
+    "name": "findutils",
+    "command": "find",
+    "description": "Utilities for finding files",
+    "repo_url": "https://www.gnu.org/software/findutils/",
+    "licence": "GPL-3.0",
+    "packageManager": "dnf",
+    "category": "system"
+  },
+  {
+    "scope": "core",
+    "name": "procps-ng",
+    "command": "ps",
+    "description": "System and process monitoring utilities",
+    "repo_url": "https://gitlab.com/procps-ng/procps",
+    "licence": "GPL-2.0",
+    "packageManager": "dnf",
+    "category": "system"
+  },
+  {
+    "scope": "core",
+    "name": "psmisc",
+    "command": "killall",
+    "description": "Utilities for managing processes",
+    "repo_url": "https://gitlab.com/psmisc/psmisc",
+    "licence": "GPL-2.0",
+    "packageManager": "dnf",
+    "category": "system"
+  },
+  {
+    "scope": "core",
+    "name": "bind-utils",
+    "command": "dig",
+    "description": "Utilities for querying DNS name servers",
+    "repo_url": "https://www.isc.org/bind/",
+    "licence": "MPL-2.0",
+    "packageManager": "dnf",
+    "category": "network"
+  },
+  {
+    "scope": "core",
+    "name": "iproute",
+    "command": "ip",
+    "description": "Networking configuration and traffic control utilities",
+    "repo_url": "https://git.kernel.org/pub/scm/network/iproute2/iproute2.git",
+    "licence": "GPL-2.0",
+    "packageManager": "dnf",
+    "category": "network"
+  },
+  {
+    "scope": "core",
+    "name": "iputils",
+    "command": "ping",
+    "description": "Network monitoring utilities",
+    "repo_url": "https://github.com/iputils/iputils",
+    "licence": "BSD-3-Clause",
+    "packageManager": "dnf",
+    "category": "network"
+  },
+  {
+    "scope": "core",
+    "name": "traceroute",
+    "command": "traceroute",
+    "description": "Trace the route IP packets take to a host",
+    "repo_url": "https://sourceforge.net/projects/traceroute/",
+    "licence": "GPL-2.0",
+    "packageManager": "dnf",
+    "category": "network"
+  },
+  {
+    "scope": "core",
+    "name": "jetbrains-mono-fonts",
+    "command": "jetbrains-mono",
+    "description": "Monospaced font designed for developers by JetBrains",
+    "repo_url": "https://github.com/JetBrains/JetBrainsMono",
+    "licence": "OFL-1.1",
+    "packageManager": "dnf",
+    "category": "font"
+  },
+  {
+    "scope": "core",
+    "name": "zsh-autosuggestions",
+    "command": "zsh-autosuggestions",
+    "description": "Fish-like autosuggestions for zsh",
+    "repo_url": "https://github.com/zsh-users/zsh-autosuggestions",
+    "licence": "MIT",
+    "packageManager": "dnf",
+    "category": "shell"
+  },
+  {
+    "scope": "core",
+    "name": "zsh-syntax-highlighting",
+    "command": "zsh-syntax-highlighting",
+    "description": "Fish shell like syntax highlighting for zsh",
+    "repo_url": "https://github.com/zsh-users/zsh-syntax-highlighting",
+    "licence": "BSD-3-Clause",
+    "packageManager": "dnf",
+    "category": "shell"
+  },
+  {
+    "scope": "core",
+    "name": "zsh",
+    "command": "zsh",
+    "description": "Z SHell, a Bash-compatible command-line interpreter",
+    "repo_url": "https://www.zsh.org/",
+    "licence": "MIT",
+    "packageManager": "dnf",
+    "category": "shell"
+  },
+  {
+    "scope": "core",
+    "name": "gcc",
+    "command": "gcc",
+    "description": "GNU compiler collection",
+    "repo_url": "https://gcc.gnu.org/",
+    "licence": "GPL-3.0",
+    "packageManager": "dnf",
+    "category": "development"
+  },
+  {
+    "scope": "core",
+    "name": "git",
+    "command": "git",
+    "description": "Distributed version control system",
+    "repo_url": "https://github.com/git/git",
+    "licence": "GPL-2.0",
+    "packageManager": "dnf",
+    "category": "development"
+  },
+  {
+    "scope": "core",
+    "name": "openssl",
+    "command": "openssl",
+    "description": "OpenSSL cryptographic toolkit",
+    "repo_url": "https://github.com/openssl/openssl",
+    "licence": "Apache-2.0",
+    "packageManager": "dnf",
+    "category": "security"
+  },
+  {
+    "scope": "core",
+    "name": "ca-certificates",
+    "command": "ca-certificates",
+    "description": "Provides trusted CA certificates for TLS/SSL verification",
+    "repo_url": "https://src.fedoraproject.org/rpms/ca-certificates",
+    "licence": "MIT",
+    "packageManager": "dnf",
+    "category": "security"
+  },
+  {
+    "scope": "core",
+    "name": "nano",
+    "command": "nano",
+    "description": "Text editor. An enhanced pico clone",
+    "repo_url": "https://www.nano-editor.org/",
+    "licence": "GPL-3.0",
+    "packageManager": "dnf",
+    "category": "development"
+  },
+  {
+    "scope": "core",
+    "name": "vim",
+    "command": "vim",
+    "description": "Vi IMproved, a programmer's text editor",
+    "repo_url": "https://github.com/vim/vim",
+    "licence": "VIM",
+    "packageManager": "dnf",
+    "category": "development"
+  },
+  {
+    "scope": "core",
+    "name": "curl",
+    "command": "curl",
+    "description": "Transfer data from or to a server using various protocols",
+    "repo_url": "https://github.com/curl/curl",
+    "licence": "MIT",
+    "packageManager": "dnf",
+    "category": "network"
+  },
+  {
+    "scope": "core",
+    "name": "wget",
+    "command": "wget",
+    "description": "Non-interactive network downloader",
+    "repo_url": "https://git.savannah.gnu.org/cgit/wget.git",
+    "licence": "GPL-3.0",
+    "packageManager": "dnf",
+    "category": "network"
+  },
+  {
+    "scope": "core",
+    "name": "nmap",
+    "command": "nmap",
+    "description": "Network exploration tool and security/port scanner",
+    "repo_url": "https://github.com/nmap/nmap",
+    "licence": "Nmap",
+    "packageManager": "dnf",
+    "category": "security"
+  },
+  {
+    "scope": "core",
+    "name": "netcat",
+    "command": "nc",
+    "description": "Utility for managing network connections",
+    "repo_url": "https://sourceforge.net/projects/netcat/",
+    "licence": "GPL-2.0",
+    "packageManager": "dnf",
+    "category": "network"
+  },
+  {
+    "scope": "core",
+    "name": "file",
+    "command": "file",
+    "description": "Determine file type",
+    "repo_url": "https://github.com/file/file",
+    "licence": "BSD-2-Clause",
+    "packageManager": "dnf",
+    "category": "system"
+  },
+  {
+    "scope": "core",
+    "name": "tcpdump",
+    "command": "tcpdump",
+    "description": "Dump traffic on a network",
+    "repo_url": "https://github.com/the-tcpdump-group/tcpdump",
+    "licence": "BSD-3-Clause",
+    "packageManager": "dnf",
+    "category": "network"
+  },
+  {
+    "scope": "core",
+    "name": "rsync",
+    "command": "rsync",
+    "description": "Fast incremental file transfer utility",
+    "repo_url": "https://github.com/WayneD/rsync",
+    "licence": "GPL-3.0",
+    "packageManager": "dnf",
+    "category": "system"
+  },
+  {
+    "scope": "core",
+    "name": "xz",
+    "command": "xz",
+    "description": "LZMA compression utilities",
+    "repo_url": "https://git.tukaani.org/xz.git",
+    "licence": "LGPL-2.1",
+    "packageManager": "dnf",
+    "category": "system"
+  },
+  {
+    "scope": "core",
+    "name": "tar",
+    "command": "tar",
+    "description": "GNU tar archiving utility",
+    "repo_url": "https://www.gnu.org/software/tar/",
+    "licence": "GPL-3.0",
+    "packageManager": "dnf",
+    "category": "system"
+  },
+  {
+    "scope": "core",
+    "name": "gzip",
+    "command": "gzip",
+    "description": "GNU compression utility",
+    "repo_url": "https://www.gnu.org/software/gzip/",
+    "licence": "GPL-3.0",
+    "packageManager": "dnf",
+    "category": "system"
+  },
+  {
+    "scope": "core",
+    "name": "unzip",
+    "command": "unzip",
+    "description": "Extract, test, and list ZIP files",
+    "repo_url": "https://sourceforge.net/projects/infozip/",
+    "licence": "Info-ZIP",
+    "packageManager": "dnf",
+    "category": "system"
+  },
+  {
+    "scope": "core",
+    "name": "jq",
+    "command": "jq",
+    "description": "Lightweight and flexible command-line JSON processor",
+    "repo_url": "https://github.com/jqlang/jq",
+    "licence": "MIT",
+    "packageManager": "dnf",
+    "category": "system"
+  },
+  {
+    "scope": "core",
+    "name": "yq",
+    "command": "yq",
+    "description": "Lightweight and portable command-line YAML processor",
+    "repo_url": "https://github.com/mikefarah/yq",
+    "licence": "MIT",
+    "packageManager": "dnf",
+    "category": "system"
+  },
+  {
+    "scope": "core",
+    "name": "btop",
+    "command": "btop",
+    "description": "Resource monitor that shows CPU, memory, disks, network, and processes",
+    "repo_url": "https://github.com/aristocratos/btop",
+    "licence": "Apache-2.0",
+    "packageManager": "dnf",
+    "category": "monitoring"
+  },
+  {
+    "scope": "core",
+    "name": "fastfetch",
+    "command": "fastfetch",
+    "description": "Display information about your operating system, software, and hardware",
+    "repo_url": "https://github.com/fastfetch-cli/fastfetch",
+    "licence": "MIT",
+    "packageManager": "dnf",
+    "category": "monitoring"
+  },
+  {
+    "scope": "core",
+    "name": "helix",
+    "command": "hx",
+    "description": "Post-modern modal text editor",
+    "repo_url": "https://github.com/helix-editor/helix",
+    "licence": "MPL-2.0",
+    "packageManager": "mise",
+    "category": "development"
+  },
+  {
+    "scope": "core",
+    "name": "neovim",
+    "command": "nvim",
+    "description": "Ambitious Vim-fork focused on extensibility and agility",
+    "repo_url": "https://github.com/neovim/neovim",
+    "licence": "Apache-2.0",
+    "packageManager": "mise",
+    "category": "development"
+  },
+  {
+    "scope": "core",
+    "name": "lazygit",
+    "command": "lazygit",
+    "description": "Simple terminal UI for git commands",
+    "repo_url": "https://github.com/jesseduffield/lazygit",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "development"
+  },
+  {
+    "scope": "core",
+    "name": "yazi",
+    "command": "yazi",
+    "description": "Blazing fast terminal file manager written in Rust",
+    "repo_url": "https://github.com/sxyazi/yazi",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "filesystem"
+  },
+  {
+    "scope": "core",
+    "name": "zellij",
+    "command": "zellij",
+    "description": "Pluggable terminal workspace, with terminal multiplexer as the base feature",
+    "repo_url": "https://github.com/zellij-org/zellij",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "shell"
+  },
+  {
+    "scope": "core",
+    "name": "dprint",
+    "command": "dprint",
+    "description": "Pluggable and configurable code formatting platform written in Rust",
+    "repo_url": "https://github.com/dprint/dprint",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "formatter"
+  },
+  {
+    "scope": "core",
+    "name": "taplo",
+    "command": "taplo",
+    "description": "TOML toolkit written in Rust",
+    "repo_url": "https://github.com/tamasfe/taplo",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "formatter"
+  },
+  {
+    "scope": "core",
+    "name": "shfmt",
+    "command": "shfmt",
+    "description": "Shell parser, formatter, and interpreter",
+    "repo_url": "https://github.com/mvdan/sh",
+    "licence": "BSD-3-Clause",
+    "packageManager": "mise",
+    "category": "formatter"
+  },
+  {
+    "scope": "core",
+    "name": "node",
+    "command": "node",
+    "description": "Open-source, cross-platform JavaScript runtime environment",
+    "repo_url": "https://github.com/nodejs/node",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "runtimes"
+  },
+  {
+    "scope": "core",
+    "name": "pnpm",
+    "command": "pnpm",
+    "description": "Fast, disk space efficient package manager",
+    "repo_url": "https://github.com/pnpm/pnpm",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "package-manager"
+  },
+  {
+    "scope": "core",
+    "name": "marksman",
+    "command": "marksman",
+    "description": "Language Server Protocol for Markdown",
+    "repo_url": "https://github.com/artempyanykh/marksman",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "language-server"
+  },
+  {
+    "scope": "core",
+    "name": "lemminx",
+    "command": "lemminx",
+    "description": "XML language server providing validation, completion, and formatting",
+    "repo_url": "https://github.com/eclipse/lemminx",
+    "licence": "EPL-2.0",
+    "packageManager": "mise",
+    "category": "language-server"
+  },
+  {
+    "scope": "core",
+    "name": "bash-language-server",
+    "command": "bash-language-server",
+    "description": "Bash language server using tree-sitter for parsing",
+    "repo_url": "https://github.com/bash-lsp/bash-language-server",
+    "licence": "MIT",
+    "packageManager": "pnpm",
+    "category": "language-server"
+  },
+  {
+    "scope": "core",
+    "name": "emmet-ls",
+    "command": "emmet-ls",
+    "description": "Emmet support for LSP-compatible editors",
+    "repo_url": "https://github.com/aca/emmet-ls",
+    "licence": "MIT",
+    "packageManager": "pnpm",
+    "category": "language-server"
+  },
+  {
+    "scope": "core",
+    "name": "npm",
+    "command": "npm",
+    "description": "JavaScript and Node.js package manager",
+    "repo_url": "https://github.com/npm/cli",
+    "licence": "Artistic-2.0",
+    "packageManager": "npm",
+    "category": "package-manager"
+  },
+  {
+    "scope": "core",
+    "name": "vim-enhanced",
+    "command": "vim",
+    "description": "Vi IMproved, a programmer's text editor with enhanced features",
+    "repo_url": "https://github.com/vim/vim",
+    "licence": "VIM",
+    "packageManager": "dnf",
+    "category": "development"
+  },
+  {
+    "scope": "core",
+    "name": "vscode-langservers-extracted",
+    "command": "vscode-langservers-extracted",
+    "description": "Extracted language servers from VSCode for HTML, CSS, and JSON",
+    "repo_url": "https://github.com/hrsh7th/vscode-langservers-extracted",
+    "licence": "MIT",
+    "packageManager": "pnpm",
+    "category": "language-server"
+  },
+  {
+    "scope": "core",
+    "name": "vscode-xml",
+    "command": "vscode-xml",
+    "description": "XML language server from VSCode",
+    "repo_url": "https://github.com/redhat-developer/vscode-xml",
+    "licence": "EPL-2.0",
+    "packageManager": "mise",
+    "category": "language-server"
+  },
+  {
+    "scope": "core",
+    "name": "wget2-wget",
+    "command": "wget",
+    "description": "Non-interactive network downloader (wget2 variant)",
+    "repo_url": "https://gitlab.com/gnuwget/wget2",
+    "licence": "GPL-3.0",
+    "packageManager": "dnf",
+    "category": "network"
+  },
+  {
+    "scope": "core",
+    "name": "yaml-language-server",
+    "command": "yaml-language-server",
+    "description": "YAML language server with validation and completion",
+    "repo_url": "https://github.com/redhat-developer/yaml-language-server",
+    "licence": "MIT",
+    "packageManager": "pnpm",
+    "category": "language-server"
+  }
+]

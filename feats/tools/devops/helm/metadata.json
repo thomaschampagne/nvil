@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "helm",
+    "command": "helm",
+    "description": "The package manager for Kubernetes",
+    "repo_url": "https://github.com/helm/helm",
+    "licence": "Apache-2.0",
+    "packageManager": "mise",
+    "category": "devops"
+  }
+]

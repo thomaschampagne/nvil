@@ -1,0 +1,92 @@
+#!/bin/bash
+
+set -e
+
+usage() {
+    echo "Usage: $(basename "$0") <command> [options]"
+    echo ""
+    echo "Commands:"
+    echo "  rewrite-author --name <name> --email <email>   Rewrite all commits to use new author"
+    echo "  rewrite-time --time <hh:mm:ss>                 Amend last commit to specific time today"
+    exit 1
+}
+
+if [[ $# -eq 0 ]]; then
+    usage
+fi
+
+COMMAND="$1"
+shift
+
+case "$COMMAND" in
+    rewrite-author)
+        NAME=""
+        EMAIL=""
+
+        while [[ $# -gt 0 ]]; do
+            case "$1" in
+                --name)
+                    NAME="$2"
+                    shift 2
+                    ;;
+                --email)
+                    EMAIL="$2"
+                    shift 2
+                    ;;
+                *)
+                    usage
+                    ;;
+            esac
+        done
+
+        if [[ -z "$NAME" || -z "$EMAIL" ]]; then
+            usage
+        fi
+
+        echo "Rewriting commits with new author: $NAME <$EMAIL>"
+
+        export FILTER_BRANCH_SQUELCH_WARNING=1
+        git filter-branch -f --env-filter "
+            export GIT_AUTHOR_NAME=\"$NAME\"
+            export GIT_AUTHOR_EMAIL=\"$EMAIL\"
+            export GIT_COMMITTER_NAME=\"$NAME\"
+            export GIT_COMMITTER_EMAIL=\"$EMAIL\"
+        " HEAD
+
+        echo "Done! All commits have been rewritten."
+        ;;
+
+    rewrite-time)
+        TIME=""
+
+        while [[ $# -gt 0 ]]; do
+            case "$1" in
+                --time)
+                    TIME="$2"
+                    shift 2
+                    ;;
+                *)
+                    usage
+                    ;;
+            esac
+        done
+
+        if [[ -z "$TIME" ]]; then
+            usage
+        fi
+
+        if ! [[ "$TIME" =~ ^([0-9]{2}):([0-9]{2}):([0-9]{2})$ ]]; then
+            echo "Error: Time must be in hh:mm:ss format"
+            exit 1
+        fi
+
+        DATE="$(date "+%Y-%m-%d")T$TIME"
+        echo "Amending last commit to time: $DATE"
+        GIT_COMMITTER_DATE="$DATE" git commit --amend --no-edit --date "$DATE"
+        echo "Done!"
+        ;;
+
+    *)
+        usage
+        ;;
+esac

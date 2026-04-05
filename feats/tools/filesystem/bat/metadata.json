@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "bat",
+    "command": "bat",
+    "description": "A cat clone with syntax highlighting and Git integration",
+    "repo_url": "https://github.com/sharkdp/bat",
+    "licence": "Apache-2.0",
+    "packageManager": "mise",
+    "category": "filesystem"
+  }
+]

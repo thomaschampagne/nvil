@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "hexyl",
+    "command": "hexyl",
+    "description": "A command-line hex viewer",
+    "repo_url": "https://github.com/sharkdp/hexyl",
+    "licence": "Apache-2.0",
+    "packageManager": "mise",
+    "category": "system"
+  }
+]

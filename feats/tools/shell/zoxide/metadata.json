@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "zoxide",
+    "command": "zoxide",
+    "description": "A smarter cd command. Supports all major shells",
+    "repo_url": "https://github.com/ajeetdsouza/zoxide",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "shell"
+  }
+]

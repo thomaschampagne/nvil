@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "procs",
+    "command": "procs",
+    "description": "A modern replacement for ps written in Rust",
+    "repo_url": "https://github.com/dalance/procs",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "monitoring"
+  }
+]

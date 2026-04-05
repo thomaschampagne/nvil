@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "chezmoi",
+    "command": "chezmoi",
+    "description": "Manage your dotfiles across multiple diverse machines, securely",
+    "repo_url": "https://github.com/twpayne/chezmoi",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "shell"
+  }
+]

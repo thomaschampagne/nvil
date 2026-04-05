@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "navi",
+    "command": "navi",
+    "description": "An interactive cheatsheet tool for the command-line",
+    "repo_url": "https://github.com/denisidoro/navi",
+    "licence": "Apache-2.0",
+    "packageManager": "mise",
+    "category": "search"
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "k9s",
+    "command": "k9s",
+    "description": "Kubernetes CLI to manage your clusters",
+    "repo_url": "https://github.com/derailed/k9s",
+    "licence": "Apache-2.0",
+    "packageManager": "mise",
+    "category": "devops"
+  }
+]

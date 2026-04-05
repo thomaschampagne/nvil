@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "xh",
+    "command": "xh",
+    "description": "Friendly and fast tool for sending HTTP requests",
+    "repo_url": "https://github.com/ducaale/xh",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "network"
+  }
+]

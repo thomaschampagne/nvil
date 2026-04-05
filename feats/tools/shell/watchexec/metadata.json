@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "watchexec",
+    "command": "watchexec",
+    "description": "Execute commands when files change",
+    "repo_url": "https://github.com/watchexec/watchexec",
+    "licence": "Apache-2.0",
+    "packageManager": "mise",
+    "category": "shell"
+  }
+]

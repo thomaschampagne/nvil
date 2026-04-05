@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "bandwhich",
+    "command": "bandwhich",
+    "description": "Terminal bandwidth utilization tool",
+    "repo_url": "https://github.com/imsnif/bandwhich",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "monitoring"
+  }
+]

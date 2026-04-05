@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "tokei",
+    "command": "tokei",
+    "description": "A program that displays statistics about your code",
+    "repo_url": "https://github.com/XAMPPRocky/tokei",
+    "licence": "Apache-2.0",
+    "packageManager": "brew",
+    "category": "development"
+  }
+]

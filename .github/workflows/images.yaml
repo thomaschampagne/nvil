@@ -1,0 +1,97 @@
+name: oci-nvil-build
+
+env:
+  OCI_APP_NAME: nvil
+
+on:
+  workflow_dispatch:
+    inputs:
+      arg_file:
+        description: "Path to arg file (default: ./build-args.default.conf)"
+        required: false
+        default: "./build-args.default.conf"
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Docker Setup QEMU
+        uses: docker/setup-qemu-action@v4 # https://github.com/marketplace/actions/docker-setup-qemu
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4 # https://github.com/marketplace/actions/docker-setup-buildx
+
+      # Enable "Workflow permissions" to "R/W" into https://github.com/thomaschampagne/${repo}/settings/actions
+      - name: Log into GitHub Container Registry
+        uses: docker/login-action@v4 # https://github.com/marketplace/actions/docker-login
+        with:
+          registry: ghcr.io
+          username: ${{ github.action }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set 'ISO' date to "BUILD_DATE" env variable
+        run: echo "BUILD_DATE=$(date -Is)" >> $GITHUB_ENV
+
+      - name: Set 'YYYYMMDD' date to "BUILD_DATE_SHORT" env variable
+        run: echo "BUILD_DATE_SHORT=$(date +%Y.%m.%d)" >> $GITHUB_ENV
+
+      - name: Set 'OCI_VERSION' as semver v2 (YYYY.MM.DD)
+        run: echo "OCI_VERSION=$(date +%Y.%m.%d)" >> $GITHUB_ENV
+
+      - name: Read arg file
+        id: args
+        run: |
+          ARG_FILE="${{ github.event.inputs.arg_file || 'build-args.default.conf' }}"
+          if [ -f "$ARG_FILE" ]; then
+            echo "build_args<<EOF" >> $GITHUB_ENV
+            grep -v '^#' "$ARG_FILE" | grep -v '^$' >> $GITHUB_ENV
+            echo "EOF" >> $GITHUB_ENV
+          else
+            echo "Arg file not found: $ARG_FILE"
+          fi
+
+      # Push to GitHub Container Registry
+      - name: Build/Push nvil-core to Github Container Registry
+        uses: docker/build-push-action@v7 # https://github.com/marketplace/actions/build-and-push-docker-images
+        with:
+          context: .
+          file: ./core/core.Dockerfile
+          build-args: |
+            OCI_APP_NAME=${{ env.OCI_APP_NAME}}
+            OCI_REPO_URL=https://github.com/${{ github.repository }}/tree/${{ github.ref_name }}/${{ env.OCI_APP_NAME }}
+            OCI_BUILD_DATE=${{ env.BUILD_DATE }}
+            OCI_VERSION=${{ env.OCI_VERSION }}
+            ${{ env.build_args }}
+          platforms: linux/amd64
+          provenance: false
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/nvil-core:latest
+            ghcr.io/${{ github.repository_owner }}/nvil-core:${{ env.BUILD_DATE_SHORT }}
+
+      - name: Build/Push nvil-full to Github Container Registry
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: ./flavors/full.Dockerfile
+          build-args: |
+            OCI_APP_NAME=${{ env.OCI_APP_NAME}}
+            OCI_REPO_URL=https://github.com/${{ github.repository }}/tree/${{ github.ref_name }}/${{ env.OCI_APP_NAME }}
+            OCI_BUILD_DATE=${{ env.BUILD_DATE }}
+            OCI_VERSION=${{ env.OCI_VERSION }}
+            ${{ env.build_args }}
+          platforms: linux/amd64
+          provenance: false
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/nvil-full:latest
+            ghcr.io/${{ github.repository_owner }}/nvil-full:${{ env.BUILD_DATE_SHORT }}

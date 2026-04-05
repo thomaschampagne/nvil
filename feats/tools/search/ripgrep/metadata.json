@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "ripgrep",
+    "command": "rg",
+    "description": "Recursively searches directories for a regex pattern while respecting your gitignore",
+    "repo_url": "https://github.com/BurntSushi/ripgrep",
+    "licence": "Unlicense",
+    "packageManager": "mise",
+    "category": "search"
+  }
+]

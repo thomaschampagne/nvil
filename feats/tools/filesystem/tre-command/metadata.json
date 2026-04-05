@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "tre-command",
+    "command": "tre",
+    "description": "A modern alternative to the tree command",
+    "repo_url": "https://github.com/dduan/tre",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "filesystem"
+  }
+]

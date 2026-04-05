@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "opencode",
+    "command": "opencode",
+    "description": "AI coding assistant for the terminal",
+    "repo_url": "https://github.com/anomalyco/opencode",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "ai"
+  }
+]

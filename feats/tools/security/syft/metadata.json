@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "syft",
+    "command": "syft",
+    "description": "Generate Software Bill of Materials (SBOM) from container images and filesystems",
+    "repo_url": "https://github.com/anchore/syft",
+    "licence": "Apache-2.0",
+    "packageManager": "mise",
+    "category": "security"
+  }
+]

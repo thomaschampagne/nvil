@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-go/master/schema/compose-spec.json
+services:
+  web:
+    container_name: web
+    image: nginx:latest
+    hostname: web
+    restart: unless-stopped
+    ports:
+      - "8080:80"

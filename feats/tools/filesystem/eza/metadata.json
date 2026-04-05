@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "eza",
+    "command": "eza",
+    "description": "A modern replacement for ls",
+    "repo_url": "https://github.com/eza-community/eza",
+    "licence": "EUPL-1.2",
+    "packageManager": "mise",
+    "category": "filesystem"
+  }
+]

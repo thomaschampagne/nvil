@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "kubectl",
+    "command": "kubectl",
+    "description": "Kubernetes command-line tool",
+    "repo_url": "https://github.com/kubernetes/kubernetes",
+    "licence": "Apache-2.0",
+    "packageManager": "mise",
+    "category": "devops"
+  }
+]

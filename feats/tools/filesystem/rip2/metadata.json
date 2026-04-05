@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "rip2",
+    "command": "rip",
+    "description": "A safer, ergonomic alternative to rm",
+    "repo_url": "https://github.com/MilesCranmer/rip2",
+    "licence": "GPL-3.0",
+    "packageManager": "mise",
+    "category": "filesystem"
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "dua",
+    "command": "dua",
+    "description": "A tool to conveniently learn about the disk usage of directories, fast",
+    "repo_url": "https://github.com/Byron/dua-cli",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "filesystem"
+  }
+]
