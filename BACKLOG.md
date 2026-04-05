@@ -2,9 +2,9 @@
 
 ## Triage
 
-- [ ] Helix keyboard shortcut for :wqa!
 - [ ] Helix keyboard shortcut / action to yamk/clipboard relative file path (<https://www.reddit.com/r/HelixEditor/comments/1cbqouk/copy_a_current_buffer_path_to_a_clipboard/>)
-- [ ] Trigger pnpm update also on upgrade: pnpm update --global
+- [ ] Spellcheck (https://www.reddit.com/r/HelixEditor/comments/10r5t56/spellcheck_in_helix/)
+- [ ] Helix keyboard shortcut for :wqa!
 - [ ] Others tools to consider
 
   | Tool | Lang | Replaces | Why |
@@ -24,12 +24,12 @@
 ## Languages (+ formatter + debuggers)
 
 - [ ] typescript (dap missing) @P1
+- [ ] Kubernetes => yaml schemas support @P1 (same for compose)
+- [ ] java
+- [ ] Python+uv
 - [ ] clang
 - [ ] Rust
-- [ ] Python+uv
-- [ ] java
-- [ ] dot file
-- [ ] Kubernetes => yaml schemas support @P1 (same for compose)
+- [ ] dotfile
 
 ## System
 
