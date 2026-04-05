@@ -30,16 +30,18 @@
 ## Quick Start
 
 ```bash
-# Create compose file in your project workspace
-curl -fsSL https://raw.githubusercontent.com/thomaschampagne/nvil/main/.nvil.yaml -o .nvil.yaml
+cd /path/to/your/projects-folder
 
-# Set up environment
-cp .nvil.env.sample .nvil.env
+# Download sample compose file in your project workspace
+curl -fsSL https://raw.githubusercontent.com/thomaschampagne/nvil/main/.nvil.yaml -o .nvil.yaml
+curl -fsSL https://raw.githubusercontent.com/thomaschampagne/nvil/main/.nvil.env.sample -o .nvil.env
+
 # Edit .nvil.env with your info and preferences
+vi .nvil.env
 
 # Launch
 podman compose -f .nvil.yaml up -d
-podman compose -f .nvil.yaml exec nvil zsh -ic zellij
+podman compose -f .nvil.yaml exec nvil zsh -ic zellij # Connect (opens Zellij with ZSH)
 ```
 
 You're in a fully configured dev environment. See [Usage](#usage) for details.
@@ -119,6 +121,7 @@ cp .nvil.env.sample .nvil.env
 Create `.nvil.yaml` in your workspace directory (e.g., `/home/user/Projects/.nvil.yaml`):
 
 ```yaml
+# yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-go/master/schema/compose-spec.json
 services:
   nvil:
     container_name: ${NVIL_CONTAINER_NAME:-nvil}
