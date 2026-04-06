@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "grex",
+    "command": "grex",
+    "description": "A command-line tool for generating regular expressions from test cases",
+    "repo_url": "https://github.com/pemistahl/grex",
+    "licence": "Apache-2.0",
+    "packageManager": "mise",
+    "category": "shell"
+  }
+]
