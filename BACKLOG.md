@@ -4,6 +4,7 @@
 
 - [ ] Support Docker instead of podman only.
 - [ ] Helix keyboard shortcut / action to yamk/clipboard relative file path (<https://www.reddit.com/r/HelixEditor/comments/1cbqouk/copy_a_current_buffer_path_to_a_clipboard/>)
+  > Shortcut working: `"C-y" = ":sh printf '\\e]52;c;%%s\\a' $(echo -n %{buffer_name} | base64) > /dev/tty"`
 - [ ] Spellcheck (https://www.reddit.com/r/HelixEditor/comments/10r5t56/spellcheck_in_helix/)
 - [ ] Helix keyboard shortcut for :wqa!
 - [ ] Others tools to consider
