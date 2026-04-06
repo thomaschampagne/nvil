@@ -2,6 +2,7 @@
 
 ## Triage
 
+- [ ] Control Lifecycle Commands with `just` command runner ?
 - [ ] Helix keyboard shortcut / action to yamk/clipboard relative file path (<https://www.reddit.com/r/HelixEditor/comments/1cbqouk/copy_a_current_buffer_path_to_a_clipboard/>)
 - [ ] Spellcheck (https://www.reddit.com/r/HelixEditor/comments/10r5t56/spellcheck_in_helix/)
 - [ ] Helix keyboard shortcut for :wqa!
@@ -14,6 +15,7 @@
   | `choose` | Rust | cut/awk | Field selection |
   | `ouch` | Rust | tar/gzip | Compression tool |
   | `grex` | Rust | — | Regex from examples |
+  | `????` | rustgo | — | Tool to generate qrcode |
 
 - [ ] Convert `core/init/feats/required.install.sh` as real feats
 
@@ -22,7 +24,7 @@
 - [ ] Lazygit hunk cpy (ctlr-o) trigger error tried "sudo dnf install xclip wl-clipboard xsel" but still fails
 
 ## Languages (+ formatter + debuggers)
-
+ f
 - [ ] typescript (dap missing) @P1
 - [ ] Kubernetes => yaml schemas support @P1 (same for compose)
 - [ ] java
