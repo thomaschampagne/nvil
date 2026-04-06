@@ -6,7 +6,7 @@ services:
     hostname: ${NVIL_CONTAINER_NAME:-nvil}
     restart: unless-stopped
     env_file:
-      - .nvil.env
+      - .env
     working_dir: /workspace
     volumes:
       - .:/workspace:delegated
