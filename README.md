@@ -11,7 +11,9 @@
 # NVIL
 
 <!--toc:start-->
+
 - [NVIL](#nvil)
+  - [Requirements](#requirements)
   - [Quick Start](#quick-start)
   - [Features](#features)
   - [NVIL vs Dev Containers](#nvil-vs-dev-containers)
@@ -25,23 +27,30 @@
   - [Project Structure](#project-structure)
   - [Contributing](#contributing)
   - [License](#license)
+
 <!--toc:end-->
+
+## Requirements
+
+| Tool                                    | Description       | Install                                                           |
+| --------------------------------------- | ----------------- | ----------------------------------------------------------------- |
+| [just](https://github.com/casey/just)   | Command runner    | `brew install just` / `cargo install just` / `scoop install just` |
+| [podman](https://podman.io) (or docker) | Container runtime | [Install podman](https://podman.io/getting-started/installation)  |
 
 ## Quick Start
 
 ```bash
-cd /path/to/your/projects-folder
+cd /path/to/your-projects-workspace
 
-# Download sample compose file in your project workspace
+# Download sample files
 curl -fsSL https://raw.githubusercontent.com/thomaschampagne/nvil/main/.nvil.yaml -o .nvil.yaml
-curl -fsSL https://raw.githubusercontent.com/thomaschampagne/nvil/main/.nvil.env.sample -o .nvil.env
+curl -fsSL https://raw.githubusercontent.com/thomaschampagne/nvil/main/.env.sample -o .env
 
-# Edit .nvil.env with your info and preferences
-vi .nvil.env
+# Edit .env with your info and preferences
+vi .env
 
 # Launch
-podman compose -f .nvil.yaml up -d
-podman compose -f .nvil.yaml exec nvil zsh -ic zellij # Connect (opens Zellij with ZSH)
+just connect
 ```
 
 You're in a fully configured dev environment. See [Usage](#usage) for details.
@@ -103,7 +112,7 @@ You're in a fully configured dev environment. See [Usage](#usage) for details.
 Copy and edit the sample:
 
 ```bash
-cp .nvil.env.sample .nvil.env
+cp .env.sample .env
 ```
 
 | Variable                   | Default                                    | Description                         |
@@ -129,7 +138,7 @@ services:
     hostname: ${NVIL_CONTAINER_NAME:-nvil}
     restart: unless-stopped
     env_file:
-      - .nvil.env
+      - .env
     working_dir: /workspace
     volumes:
       - .:/workspace:delegated
@@ -143,21 +152,14 @@ services:
 ### Lifecycle Commands
 
 ```bash
-# Create and start
-podman compose -f .nvil.yaml up -d
-
-# Connect (opens Zellij with ZSH)
-podman compose -f .nvil.yaml exec nvil zsh -ic zellij
+# Start and connect (auto-starts podman machine if needed)
+just connect
 
 # Stop (preserves container state)
-podman compose -f .nvil.yaml stop nvil
+just stop
 
-# Resume then connect after stop
-podman compose -f .nvil.yaml start nvil
-podman compose -f .nvil.yaml exec nvil zsh -ic zellij
-
-# Remove container
-podman compose -f .nvil.yaml down
+# Destroy container
+just delete
 ```
 
 ## Build Your Own Flavor
@@ -297,9 +299,11 @@ Total: 95 packages
 │   └── frameworks/         # Framework-specific tooling
 ├── flavors/                # Dockerfiles that compose core + feats
 ├── .github/workflows/      # CI for building and publishing images
+├── justfile                # Task runner for lifecycle commands
 ├── nvil.img.make.sh        # Image build script
-├── .nvil.env.sample        # Environment template
-└── .nvil.yaml              # Compose template (create in your workspace)
+├── .env.sample             # Environment template
+├── .nvil.yaml              # Compose template (create in your workspace)
+└── .dev/                   # Local dev compose files
 ```
 
 ## Contributing

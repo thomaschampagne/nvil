@@ -2,7 +2,7 @@
 
 ## Triage
 
-- [ ] Control Lifecycle Commands with `just` command runner ?
+- [ ] Support Docker instead of podman only.
 - [ ] Helix keyboard shortcut / action to yamk/clipboard relative file path (<https://www.reddit.com/r/HelixEditor/comments/1cbqouk/copy_a_current_buffer_path_to_a_clipboard/>)
 - [ ] Spellcheck (https://www.reddit.com/r/HelixEditor/comments/10r5t56/spellcheck_in_helix/)
 - [ ] Helix keyboard shortcut for :wqa!
