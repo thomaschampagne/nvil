@@ -44,6 +44,7 @@ cd /path/to/your-projects-workspace
 
 # Download sample files
 curl -fsSL https://raw.githubusercontent.com/thomaschampagne/nvil/main/.nvil.yaml -o .nvil.yaml
+curl -fsSL https://raw.githubusercontent.com/thomaschampagne/nvil/main/justfile -o justfile
 curl -fsSL https://raw.githubusercontent.com/thomaschampagne/nvil/main/.env.sample -o .env
 
 # Edit .env with your info and preferences
