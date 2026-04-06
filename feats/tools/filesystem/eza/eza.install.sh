@@ -12,4 +12,5 @@ mise use -g eza
 # Add e => eza alias to zshrc
 echo -e '\n# Append eza alias' >> ~/.zshrc
 echo 'alias e="eza"' >> ~/.zshrc
-echo 'alias el="eza -la"' >> ~/.zshrc
+echo 'alias el="eza -l"' >> ~/.zshrc
+echo 'alias ea="eza -la"' >> ~/.zshrc
