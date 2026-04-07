@@ -378,7 +378,7 @@ bash /nvil/core/utils/feats.install.sh --features-folder /path/to/features
 
 - [Discussions](https://github.com/thomaschampagne/nvil/discussions) - questions and ideas
 - [Issues](https://github.com/thomaschampagne/nvil/issues) - bug reports and feature requests
-- [AGENT.md](./AGENT.md) - AI agent codebase summary
+- [AGENTS.md](./AGENTS.md) - AI agent codebase summary
 
 ## License
 
