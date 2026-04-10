@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="logo.png" alt="NVIL Logo" width="400">
+<img src="logo.png" alt="NVIL Logo">
 
 <i>A portable, containerized terminal-first development environment built on Rhel Family. <br/> Start coding immediately without configuring a new machine.</i>
 
@@ -12,21 +12,20 @@
 
 <!--toc:start-->
 
-- [NVIL](#nvil)
-  - [Requirements](#requirements)
-  - [Quick Start](#quick-start)
-  - [Features](#features)
-  - [NVIL vs Dev Containers](#nvil-vs-dev-containers)
-  - [Architecture](#architecture)
-  - [Usage](#usage)
-    - [Environment Variables](#environment-variables)
-    - [Setup](#setup)
-    - [Lifecycle Commands](#lifecycle-commands)
-  - [Build Your Own Flavor](#build-your-own-flavor)
-  - [Available Tools in Full Flavor](#available-tools-in-full-flavor)
-  - [Project Structure](#project-structure)
-  - [Contributing](#contributing)
-  - [License](#license)
+- [Requirements](#requirements)
+- [Quick Start](#quick-start)
+- [Features](#features)
+- [NVIL vs Dev Containers](#nvil-vs-dev-containers)
+- [Architecture](#architecture)
+- [Usage](#usage)
+  - [Environment Variables](#environment-variables)
+  - [Setup](#setup)
+  - [Lifecycle Commands](#lifecycle-commands)
+- [Build Your Own Flavor](#build-your-own-flavor)
+- [Available Tools in Full Flavor](#available-tools-in-full-flavor)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
 
 <!--toc:end-->
 
