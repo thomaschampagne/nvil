@@ -8,15 +8,15 @@ eval "$(~/.local/bin/mise activate bash)"
 
 # Function to update system
 update_system() {
-    echo "Running update system with id: $(id)"
-    if [ "$(id -u)" -eq 0 ]; then
-        echo "Running as root..."
-        dnf upgrade -y && dnf autoremove -y && dnf clean all -y
-        runuser -u ${NVIL_USER} -- bash -c '
+  echo "Running update system with id: $(id)"
+  if [ "$(id -u)" -eq 0 ]; then
+    echo "Running as root..."
+    dnf upgrade -y && dnf autoremove -y && dnf clean all -y
+    runuser -u ${NVIL_USER} -- bash -c '
             eval "$(/home/${NVIL_USER}/.local/bin/mise activate bash)"
-            mise self-update && mise upgrade && mise reshim && mise prune && mise cache clean
+            mise self-update -y && mise upgrade && mise reshim && mise prune && mise cache clean
         '
-        runuser -u ${NVIL_USER} -- bash -c '
+    runuser -u ${NVIL_USER} -- bash -c '
             eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
             eval "$(/home/${NVIL_USER}/.local/bin/mise activate bash)"
             export PNPM_HOME="${PNPM_HOME:-/home/${NVIL_USER}/.local/share/pnpm}"
@@ -24,40 +24,40 @@ update_system() {
             brew update && brew upgrade && brew cleanup && brew autoremove && brew cleanup --prune=all
             pnpm upgrade --global && pnpm store prune --force && pnpm cache delete
         '
-    else
-        echo "Running as user..."
-        sudo dnf upgrade -y && sudo dnf autoremove -y && sudo dnf clean all -y
-        mise self-update && mise upgrade && mise reshim && mise prune && mise cache clean
-        brew update && brew upgrade && brew cleanup && brew autoremove && brew cleanup --prune=all
-        eval "$(~/.local/bin/mise activate bash)"
-        export PNPM_HOME="${PNPM_HOME:-$HOME/.local/share/pnpm}"
-        export PATH="$PNPM_HOME:$PATH"
-        pnpm upgrade --global && pnpm store prune --force && pnpm cache delete
-    fi
+  else
+    echo "Running as user..."
+    sudo dnf upgrade -y && sudo dnf autoremove -y && sudo dnf clean all -y
+    mise self-update -y && mise upgrade && mise reshim && mise prune && mise cache clean
+    brew update && brew upgrade && brew cleanup && brew autoremove && brew cleanup --prune=all
+    eval "$(~/.local/bin/mise activate bash)"
+    export PNPM_HOME="${PNPM_HOME:-$HOME/.local/share/pnpm}"
+    export PATH="$PNPM_HOME:$PATH"
+    pnpm upgrade --global && pnpm store prune --force && pnpm cache delete
+  fi
 }
 
 # Function to show tools
 list_pkgs() {
-    local script_dir
-    script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-    bash "${script_dir}/list.pkgs.sh" "$@"
+  local script_dir
+  script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  bash "${script_dir}/list.pkgs.sh" "$@"
 }
 
 # Function to display help
 show_help() {
-    echo "Usage: $0 [OPTION]"
-    echo
-    echo "Options:"
-    echo "  --update                Update packages from all package managers"
-    echo "  --list <--format=TYPE>  List with format: shell|markdown|json|yaml (default: shell)"
-    echo "  --help                  Show this help message and exit"
-    echo
-    exit 0
+  echo "Usage: $0 [OPTION]"
+  echo
+  echo "Options:"
+  echo "  --update                Update packages from all package managers"
+  echo "  --list <--format=TYPE>  List with format: shell|markdown|json|yaml (default: shell)"
+  echo "  --help                  Show this help message and exit"
+  echo
+  exit 0
 }
 
 # Check for arguments
 if [ $# -eq 0 ]; then
-    show_help
+  show_help
 fi
 
 # Parse --format if present, pass remaining args to list_pkgs
@@ -65,39 +65,39 @@ FORMAT_ARG=""
 ACTION=""
 
 for arg in "$@"; do
-    case "$arg" in
-        --format=*)
-            FORMAT_ARG="$arg"
-            ;;
-        --update|--list|--help)
-            ACTION="$arg"
-            ;;
-    esac
+  case "$arg" in
+    --format=*)
+      FORMAT_ARG="$arg"
+      ;;
+    --update | --list | --help)
+      ACTION="$arg"
+      ;;
+  esac
 done
 
 # Default action if none specified
 if [ -z "$ACTION" ]; then
-    ACTION="--list"
+  ACTION="--list"
 fi
 
 # Map options to functions
 case "$ACTION" in
-    --update)
-        update_system
-        ;;
-    --list)
-        if [ -n "$FORMAT_ARG" ]; then
-            list_pkgs "$FORMAT_ARG"
-        else
-            list_pkgs
-        fi
-        ;;
-    --help)
-        show_help
-        ;;
-    *)
-        echo "Unknown option: $ACTION"
-        echo "Use --help for usage information."
-        exit 1
-        ;;
+  --update)
+    update_system
+    ;;
+  --list)
+    if [ -n "$FORMAT_ARG" ]; then
+      list_pkgs "$FORMAT_ARG"
+    else
+      list_pkgs
+    fi
+    ;;
+  --help)
+    show_help
+    ;;
+  *)
+    echo "Unknown option: $ACTION"
+    echo "Use --help for usage information."
+    exit 1
+    ;;
 esac
