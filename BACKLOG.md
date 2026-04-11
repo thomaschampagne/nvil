@@ -21,7 +21,6 @@
   | `choose` | Rust | cut/awk | Field selection |
   | `ouch` | Rust | tar/gzip | Compression tool |
   | `????` | rustgo | — | Tool to generate qrcode |
-  | `mise use -g github:Bahaaio/pomo` | go | — | Pomodoro timer |
 
 - [ ] Convert `core/init/feats/required.install.sh` as real feats
 

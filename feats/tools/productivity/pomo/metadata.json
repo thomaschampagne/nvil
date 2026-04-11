@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "productivity",
+    "name": "pomo",
+    "command": "pomo",
+    "description": "Terminal Pomodoro timer with TUI, ASCII art, notifications, statistics",
+    "repo_url": "https://github.com/Bahaaio/pomo",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "productivity"
+  }
+]
