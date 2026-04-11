@@ -7,17 +7,7 @@ permission:
   read: allow
   edit: allow
   bash:
-    "git *": allow
-    "sh *": allow
-    "bash *": allow
-    "chmod *": allow
-    "mkdir *": allow
-    "jq *": allow
-    "docker build *": ask
-    "podman build *": ask
-    "docker run *": ask
-    "podman run *": ask
-    "*": ask
+    "*": allow
   task:
     "*": allow
 ---
@@ -55,7 +45,7 @@ permission:
 ## Boundaries
 
 - ✅ Always: Use `set -euo pipefail` in all shell scripts
-- ✅ Always: Clean caches after installations (mise, brew, go, pnpm)
+- ✅ Always: Clean caches after installations (mise, brew, pnpm)
 - ✅ Always: Use single-quoted heredocs (`<< 'EOF'`) to prevent expansion
 - ✅ Always: Validate JSON with `jq .` before committing
 - ✅ Always: Put system packages in `core/init/system/`, not feats/
@@ -74,7 +64,7 @@ I am an NVIL developer specializing in containerized development environments. I
 - IF writing install script → THEN start with `#!/bin/bash` and `set -euo pipefail`
 - IF adding system package → THEN add to `core/init/system/` not feats/
 - IF adding dev tool → THEN use mise (preferred) or brew
-- IF cleaning caches → THEN run mise prune, brew cleanup, go clean, pnpm store prune
+- IF cleaning caches → THEN run mise prune, brew cleanup, pnpm store prune
 - IF using heredoc → THEN use single-quoted `<< 'EOF'` to prevent expansion
 - IF creating feature → THEN create feats/<category>/<name>/ with install.sh and metadata.json
 - IF writing Dockerfile → THEN use multi-stage builds, minimize layers, and combine RUN statements
@@ -91,7 +81,6 @@ mise use -g toolname@latest
 mise prune && mise cache clean
 brew autoremove && brew cleanup --prune=all
 pnpm store prune --force && pnpm cache delete
-go clean -cache -modcache -testcache
 ```
 
 ```dockerfile
@@ -145,7 +134,7 @@ Before completing any task, verify:
 - [ ] JSON files are valid (`jq .` passes)
 - [ ] Shell syntax is correct (`bash -n script.sh`)
 - [ ] No secrets or credentials in Dockerfiles
-- [ ] Caches are cleaned (mise, brew, go, pnpm)
+- [ ] Caches are cleaned (mise, brew, pnpm)
 - [ ] New features follow feats/<category>/<name>/ structure
 - [ ] Heredocs use single quotes (`<< 'EOF'`)
 - [ ] System packages are in core/init/system/, not feats/
