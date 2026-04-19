@@ -2,6 +2,8 @@
 
 ## Triage
 
+- [ ] Move workspace under /home/smith/workspace (host mapped) + /home/smith as volumes.
+- [ ] OpenCode: add default skills & agents (inc. dev, reviewer, doc writer,)
 - [ ] Rework just commands:
   - [ ] just list => just help
   - [ ] Add back start command
@@ -9,9 +11,6 @@
   - [ ] view current nvil machine running (--list)
   - [ ] connect using nvil machine identifier (same for delete/stop/start)
 - [ ] Support Docker instead of podman only.
-- [ ] Helix keyboard shortcut / action to yamk/clipboard relative file path (<https://www.reddit.com/r/HelixEditor/comments/1cbqouk/copy_a_current_buffer_path_to_a_clipboard/>) @P1
-- [ ] Spellcheck (https://www.reddit.com/r/HelixEditor/comments/10r5t56/spellcheck_in_helix/)
-- [ ] Helix keyboard shortcut for :wqa!
 - [ ] Others tools to consider
 
   | Tool | Lang | Replaces | Why |
@@ -45,12 +44,14 @@
 
 ## CLI and Shell
 
-- [ ] Install usefull tools from: <https://github.com/Lissy93/Brewfile/blob/master/Brewfile>
 - [ ] Add starship support feature
 
 ## Helix Editor
 
 - [ ] Integrate `yazi` file manager with Helix => Open Yazi when opening helix file explorer @P1
+- [ ] Helix keyboard shortcut / action to yamk/clipboard relative file path (<https://www.reddit.com/r/HelixEditor/comments/1cbqouk/copy_a_current_buffer_path_to_a_clipboard/>) @P1
+- [ ] Helix keyboard shortcut for :wqa!
+- [ ] Spellcheck (https://www.reddit.com/r/HelixEditor/comments/10r5t56/spellcheck_in_helix/)
 
 ## Project and CI/CD
 
