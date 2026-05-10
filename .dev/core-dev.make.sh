@@ -17,4 +17,4 @@ source ./.dev/.env
 sh nvil.img.make.sh --gh-token=$gh_token --docker-file=./core/core.Dockerfile --image=nvil-core-dev:latest
 
 # Test command:
-# podman run -it --rm -v .:/workspace --hostname dev-core nvil-core-dev:latest zsh -ic zellij # Pass '--network=none' to test offline
+# podman run -it --rm -v .:/workspace --userns=keep-id --hostname dev-core nvil-core-dev:latest zsh -ic zellij # Pass '--network=none' to test offline

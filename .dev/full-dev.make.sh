@@ -17,4 +17,4 @@ source ./.dev/.env
 sh nvil.img.make.sh --gh-token=$gh_token --docker-file=./flavors/full.Dockerfile --image=nvil-full-dev:latest --arg-file=.dev/build-args.dev.conf
 
 # Test command:
-# podman run -it --rm -v .:/workspace --hostname dev-full nvil-full-dev:latest zsh -ic zellij # Pass '--network=none' to test offline
+# podman run -it --rm -v .:/workspace --userns=keep-id --hostname dev-full nvil-full-dev:latest zsh -ic zellij # Pass '--network=none' to test offline
