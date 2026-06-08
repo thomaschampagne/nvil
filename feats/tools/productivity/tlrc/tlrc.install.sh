@@ -3,7 +3,7 @@
 # Description: Official tldr client written in Rust.
 # Repo Link: https://github.com/tldr-pages/tlrc
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 

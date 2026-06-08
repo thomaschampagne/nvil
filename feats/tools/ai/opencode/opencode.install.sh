@@ -3,7 +3,7 @@
 # Description: AI coding assistant for the terminal.
 # Repo Link: https://github.com/anomalyco/opencode
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 

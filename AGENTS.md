@@ -27,7 +27,7 @@ Use `.dev/` directory for iterative development:
 ## Adding a new tool (feature)
 
 1. Create directory: `feats/<category>/<name>/`
-2. Add `<name>.install.sh` - must start with `#!/bin/bash` and `set -euo pipefail`
+2. Add `<name>.install.sh` - must start with `#!/bin/bash` and `set -eo pipefail`
 3. Add `metadata.json` - array with scope, name, command, description, repo_url, licence, packageManager, category (use among existing ones if possible)
 4. Register in `flavors/full.Dockerfile`: `COPY --parents --chown=${NVIL_USER}:${NVIL_USER} ./feats/<category>/<name> /nvil/.tmp/`
 
@@ -35,13 +35,13 @@ Install script template:
 
 ```bash
 #!/bin/bash
-set -euo pipefail
+set -eo pipefail
 source /nvil/core/utils/feats.require.sh
 mise use -g toolname@latest
 # Clean caches (critical for image size depending on package manager used):
 mise prune && mise cache clean
 brew autoremove && brew cleanup --prune=all
-pnpm store prune --force && pnpm cache delete  # for Node tools
+pnpm cache delete  # for Node tools
 go clean -cache -modcache -testcache   # for Go tools
 ```
 
@@ -69,4 +69,4 @@ go clean -cache -modcache -testcache   # for Go tools
 - Use single-quoted heredocs (`<< 'EOF'`) to prevent variable expansion
 - Don't use `dnf` in feature scripts - system packages belong in `core/init/system/`
 - Validate JSON with `jq .` before committing
-- Scripts must use `set -euo pipefail` - failures must abort the build
+- Scripts must use `set -eo pipefail` - failures must abort the build

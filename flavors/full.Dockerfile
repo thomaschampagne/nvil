@@ -27,7 +27,7 @@ COPY --parents --chown=${NVIL_USER}:${NVIL_USER} ./feats/runtimes/bun /nvil/.tmp
 # Go Language
 COPY --parents --chown=${NVIL_USER}:${NVIL_USER} ./feats/languages/golang /nvil/.tmp/
 
-# # Dockerfile
+# Dockerfile
 COPY --parents --chown=${NVIL_USER}:${NVIL_USER} ./feats/languages/dockerfile /nvil/.tmp/
 
 # ================================ END - CHOOSE YOUR FEATURES ABOVE ================================ #

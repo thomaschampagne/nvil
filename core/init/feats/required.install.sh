@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo pipefail
+set -eo pipefail
 
 echo "============================================================"
 echo "exec \"$(realpath "$0")\" as \"$(whoami)\" user"
@@ -34,14 +34,17 @@ mise use -g \
 
 # --- Install Required Runtime (Node for many LSPs) and ensure usage on upcoming commands
 # => Use pnpm as node package manager for performance purpose against npm
-mise use -g \
-  node@lts \
-  pnpm
-
-# Ensure access to binaries installed above with new exports calls...
+mise use -g node@lts
 eval "$(~/.local/bin/mise activate bash)" # Reactivate mise for usage
-export PNPM_HOME="${PNPM_HOME:-$HOME/.local/share/pnpm}"
-export PATH="$PNPM_HOME:$PATH"
+# Install PNPM & Configure for bash installs
+corepack enable
+corepack prepare pnpm@latest --activate
+# Bash setup
+export SHELL="$(which bash)" && pnpm setup
+# ZSH setup
+export SHELL="$(which zsh)" && pnpm setup
+
+# source ~/.bashrc # TODO Can be drooped?
 
 # --- Configure Formatters markdown, json, toml, yaml
 mkdir -p ~/.config/dprint/
@@ -60,7 +63,7 @@ dprint fmt --allow-no-files # Trigger dprint wasm download
 # - yaml-language-server: yaml
 # - emmet-ls: snippet support for web
 # - bash-language-server: bash support
-pnpm add -g \
+npm add -g -y \
   vscode-langservers-extracted \
   yaml-language-server \
   emmet-ls \
@@ -69,7 +72,7 @@ pnpm add -g \
 # - lemminx: xml lsp
 mise use -g \
   marksman \
-  "github:redhat-developer/vscode-xml[asset_pattern=lemminx-linux.zip,exe=lemminx-linux,rename_exe=lemminx]"
+  github:redhat-developer/vscode-xml
 
 # Update tldr helper command
 tldr --update
@@ -78,7 +81,6 @@ tldr --update
 mise reshim
 mise prune
 mise cache clean
-pnpm store prune --force
 pnpm cache delete
 brew autoremove
 brew cleanup --prune=all

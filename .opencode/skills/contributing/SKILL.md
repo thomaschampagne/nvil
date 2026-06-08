@@ -136,7 +136,7 @@ feats/<category>/<name>/
 ```bash
 #!/bin/bash
 
-set -euo pipefail
+set -eo pipefail
 
 # Load requirements (brew + mise in PATH)
 source /nvil/core/utils/feats.require.sh
@@ -146,7 +146,6 @@ mise use -g toolname@latest
 
 # Clean caches (critical for image size)
 # go clean -cache -modcache -testcache     # for Go tools
-# pnpm store prune --force                 # for pnpm packages
 # pnpm cache delete
 
 # Helix language config (if applicable)
@@ -213,7 +212,7 @@ Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`, `ci`, `perf`
 ### PR checklist
 
 - [ ] Feature module follows the established pattern (`*.install.sh` + `metadata.json`)
-- [ ] Install script uses `set -euo pipefail`
+- [ ] Install script uses `set -eo pipefail`
 - [ ] Install script sources `/nvil/core/utils/feats.require.sh`
 - [ ] Caches are cleaned after installations (go, pnpm)
 - [ ] `metadata.json` is valid JSON with all required fields
@@ -237,7 +236,7 @@ Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`, `ci`, `perf`
 
 ### Bash scripts
 
-- Always start with `#!/bin/bash` and `set -euo pipefail`
+- Always start with `#!/bin/bash` and `set -eo pipefail`
 - Use `local` for all function variables
 - Quote all variable expansions: `"$variable"`
 - Use `[[ ]]` over `[ ]` for conditionals
@@ -329,7 +328,7 @@ If the language is already installed, you only need the LSP:
 
 ```bash
 # In an existing feature's install.sh
-pnpm add -g typescript-language-server
+npm add -g typescript-language-server
 # or
 go install golang.org/x/tools/gopls@latest
 ```

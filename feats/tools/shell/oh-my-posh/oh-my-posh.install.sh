@@ -3,7 +3,7 @@
 # Description: The most customisable and low-latency cross platform/shell prompt renderer.
 # Repo Link: https://github.com/JanDeDobbeleer/oh-my-posh
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 

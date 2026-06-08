@@ -3,7 +3,7 @@
 # Description: Intuitive find & replace CLI (sed alternative).
 # Repo Link: https://github.com/chmln/sd
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo pipefail
+set -eo pipefail
 
 # Load requirements
 source /nvil/core/utils/feats.require.sh

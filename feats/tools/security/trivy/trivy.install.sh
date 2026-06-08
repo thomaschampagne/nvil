@@ -3,7 +3,7 @@
 # Description: Find and fix container misconfigurations, IaC issues, and vulnerabilities
 # Repo Link: https://github.com/aquasecurity/trivy
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 

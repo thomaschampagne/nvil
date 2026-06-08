@@ -137,6 +137,7 @@ services:
     image: ${NVIL_IMAGE:-ghcr.io/thomaschampagne/nvil-full:latest}
     hostname: ${NVIL_CONTAINER_NAME:-nvil}
     restart: unless-stopped
+    userns_mode: host
     env_file:
       - .env
     working_dir: /workspace

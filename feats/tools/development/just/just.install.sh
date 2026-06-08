@@ -3,7 +3,7 @@
 # Description: Just a command runner.
 # Repo Link: https://github.com/casey/just
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 

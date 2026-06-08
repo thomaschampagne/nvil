@@ -3,7 +3,7 @@
 # Description: A safer, ergonomic alternative to rm.
 # Repo Link: https://github.com/MilesCranmer/rip2
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 

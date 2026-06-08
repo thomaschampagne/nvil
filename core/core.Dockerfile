@@ -1,7 +1,7 @@
 # Overridden from build-args.default.conf through CI & nvil.img.make.sh
 ARG NVIL_FEDORA_BASE_VERSION=latest
 ARG NVIL_USER="smith"
-ARG NVIL_WORKSPACE_DIR="/workspace"
+ARG NVIL_WORKSPACE_DIR="/home/${NVIL_USER}/workspace"
 
 # OCI Args
 ARG OCI_BASE_IMAGE=registry.fedoraproject.org/fedora-minimal:${NVIL_FEDORA_BASE_VERSION}
@@ -64,6 +64,10 @@ WORKDIR /nvil
 # ---- Core Init ---- 
 COPY ./core/ ./core/
 RUN echo "Creating NVIL image from ${OCI_BASE_IMAGE}..." && \
+  # Run pre-bootstrap if present
+  if [ -f ./core/pre.bootstrap.sh ]; then \
+    bash ./core/pre.bootstrap.sh; \
+  fi && \
   # And core system package to continue
   dnf install -y dos2unix tini && \
   # Run core bootstrap
@@ -78,4 +82,3 @@ WORKDIR ${NVIL_WORKSPACE_DIR}
 USER ${NVIL_USER}
 
 ENTRYPOINT ["/sbin/tini", "--", "/nvil/core/cmd/entrypoint.sh"]
-

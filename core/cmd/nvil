@@ -1,10 +1,9 @@
 #!/bin/bash
 
-set -euo pipefail
+set -eo pipefail
 
 # Ensure brew/mise is loaded in PATH
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
-eval "$(~/.local/bin/mise activate bash)"
 
 # Function to update system
 update_system() {
@@ -12,27 +11,27 @@ update_system() {
   if [ "$(id -u)" -eq 0 ]; then
     echo "Running as root..."
     dnf upgrade -y && dnf autoremove -y && dnf clean all -y
+    # Mise upgrade
     runuser -u ${NVIL_USER} -- bash -c '
             eval "$(/home/${NVIL_USER}/.local/bin/mise activate bash)"
             mise self-update -y && mise upgrade && mise reshim && mise prune && mise cache clean
         '
+    # Brew/pnpm/npm upgrade
     runuser -u ${NVIL_USER} -- bash -c '
             eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
             eval "$(/home/${NVIL_USER}/.local/bin/mise activate bash)"
-            export PNPM_HOME="${PNPM_HOME:-/home/${NVIL_USER}/.local/share/pnpm}"
-            export PATH="$PNPM_HOME:$PATH"
+            source /home/${NVIL_USER}/.bashrc
             brew update && brew upgrade && brew cleanup && brew autoremove && brew cleanup --prune=all
-            pnpm upgrade --global && pnpm store prune --force && pnpm cache delete
+            pnpm upgrade --global && pnpm cache delete
+            npm upgrade --global && npm cache verify
         '
   else
     echo "Running as user..."
     sudo dnf upgrade -y && sudo dnf autoremove -y && sudo dnf clean all -y
     mise self-update -y && mise upgrade && mise reshim && mise prune && mise cache clean
     brew update && brew upgrade && brew cleanup && brew autoremove && brew cleanup --prune=all
-    eval "$(~/.local/bin/mise activate bash)"
-    export PNPM_HOME="${PNPM_HOME:-$HOME/.local/share/pnpm}"
-    export PATH="$PNPM_HOME:$PATH"
-    pnpm upgrade --global && pnpm store prune --force && pnpm cache delete
+    pnpm upgrade --global && pnpm cache delete
+    npm upgrade --global && npm cache verify
   fi
 }
 

@@ -3,7 +3,7 @@
 # Description: The package manager for Kubernetes.
 # Repo Link: https://github.com/helm/helm
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 

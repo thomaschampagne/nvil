@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo pipefail
+set -eo pipefail
 
 echo "============================================================"
 echo "exec \"$(realpath "$0")\" as \"$(whoami)\" user"
@@ -12,6 +12,9 @@ echo "============================================================"
 
 # Create the main user
 useradd -m -d /home/${NVIL_USER} -s /bin/zsh -G wheel ${NVIL_USER}
+# Also configure default bashrc when user will use it
+cp /etc/skel/.bashrc /home/${NVIL_USER}/
+chown ${NVIL_USER}:${NVIL_USER} /home/${NVIL_USER}/.bashrc
 
 # Add workspace dir
 mkdir -p ${NVIL_WORKSPACE_DIR}

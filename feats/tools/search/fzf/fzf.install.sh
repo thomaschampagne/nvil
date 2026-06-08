@@ -3,7 +3,7 @@
 # Description: A command-line fuzzy finder.
 # Repo Link: https://github.com/junegunn/fzf
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 

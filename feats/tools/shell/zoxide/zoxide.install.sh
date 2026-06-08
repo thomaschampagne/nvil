@@ -3,7 +3,7 @@
 # Description: A smarter cd command. Supports all major shells.
 # Repo Link: https://github.com/ajeetdsouza/zoxide
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 

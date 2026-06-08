@@ -3,7 +3,7 @@
 # Description: Terminal bandwidth utilization tool.
 # Repo Link: https://github.com/imsnif/bandwhich
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 

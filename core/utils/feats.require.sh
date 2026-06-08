@@ -1,12 +1,13 @@
 #!/bin/bash
 
 # Ensure brew/mise are loaded in PATH
+# TODO source ~/.bashrc instead ?
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
 eval "$(~/.local/bin/mise activate bash)"
 
-# Configure pnpm for potential pnpm features installs
-export PNPM_HOME="${PNPM_HOME:-$HOME/.local/share/pnpm}"
-export PATH="$PNPM_HOME:$PATH"
+# TODO CAN Be droped if  Configure pnpm for potential pnpm features installs
+# export PNPM_HOME="${PNPM_HOME:-$HOME/.local/share/pnpm}"
+# export PATH="$PNPM_HOME:$PATH"
 
 require_feature() {
     local feature_path="$1"

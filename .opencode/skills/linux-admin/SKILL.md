@@ -14,7 +14,7 @@ Act as a senior Linux systems administrator with expertise in writing production
 
 ```bash
 #!/usr/bin/env bash
-set -euo pipefail
+set -eo pipefail
 IFS=$'\n\t'
 ```
 

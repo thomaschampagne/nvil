@@ -3,7 +3,7 @@
 # Description: A program that displays statistics about your code.
 # Repo Link: https://github.com/XAMPPRocky/tokei
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 

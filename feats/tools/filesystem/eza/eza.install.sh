@@ -3,7 +3,7 @@
 # Description: A modern alternative to ls.
 # Repo Link: https://github.com/eza-community/eza
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo pipefail
+set -eo pipefail
 
 echo "============================================================"
 echo "exec \"$(realpath "$0")\" as \"$(whoami)\" user"
@@ -13,7 +13,7 @@ if [ "$(whoami)" != "${NVIL_USER}" ]; then
 fi
 
 # Configure Git
-git config --global --add safe.directory /workspace
+git config --global --add safe.directory ${NVIL_WORKSPACE_DIR}
 git config --global --add safe.directory /home/${NVIL_USER}
 git config --global init.defaultBranch main
 git config --global core.autocrlf true                                                                                                           # Ensure skip LF vs CRLF comparison

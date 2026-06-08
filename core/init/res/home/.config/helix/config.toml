@@ -10,6 +10,7 @@ soft-wrap.enable = true # Enable visual line wrapping for long lines
 auto-format = true
 trim-final-newlines = true
 trim-trailing-whitespace = true
+completion-trigger-len = 0   # triggers lsp completions as soon as you enter insert mode or move the cursor
 
 # Auto-save configuration (Updated according to latest docs)
 [editor.auto-save]
@@ -45,7 +46,7 @@ select = "underline" # Underline cursor when in selection mode
 
 [editor.whitespace.render]
 space = "all" # White-spaces dots
-newline = "all"
+# newline = "all"
 
 [editor.file-picker]
 hidden = false # Show dot files/folders in file picker

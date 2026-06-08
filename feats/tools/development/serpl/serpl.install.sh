@@ -3,7 +3,7 @@
 # Description: A simple terminal UI for search and replace, ala VS Code.
 # Repo Link: https://github.com/yassinebridi/serpl
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 
