@@ -49,7 +49,7 @@
 
 ## Helix Editor
 
-- [ ] Integrate `yazi` file manager with Helix => Open Yazi when opening helix file explorer @P1
+- [x] Integrate `yazi` file manager with Helix => Open Yazi when opening helix file explorer @P1
 - [ ] Helix keyboard shortcut / action to yamk/clipboard relative file path (<https://www.reddit.com/r/HelixEditor/comments/1cbqouk/copy_a_current_buffer_path_to_a_clipboard/>) @P1
 - [ ] Helix keyboard shortcut for :wqa!
 - [ ] Spellcheck (https://www.reddit.com/r/HelixEditor/comments/10r5t56/spellcheck_in_helix/)

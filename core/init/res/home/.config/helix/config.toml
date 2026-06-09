@@ -63,6 +63,17 @@ hidden = false # Show dot files/folders in file picker
   ":reload-all",
 ]
 
+# Opens yazi file manager in a new temporary buffer and reloads after closing
+"C-y" = [
+  ":new",
+  ":insert-output yazi",
+  ":set mouse false",
+  ":set mouse true",
+  ":buffer-close!",
+  ":redraw",
+  ":reload-all",
+]
+
 # Comment current line and move down
 "C-c" = ["toggle_comments", "move_line_down"]
 # Move line down/up
