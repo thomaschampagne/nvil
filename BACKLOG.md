@@ -3,8 +3,8 @@
 ## Triage
 
 - [ ] Add `https://github.com/bug-ops/helix-trainer` as a feature. You will need to add sound lib to run it `sudo dnf install alsa-lib`
-- [ ] Move workspace under /home/smith/workspace (host mapped) + /home/smith as volumes.
-- [ ] OpenCode: add default skills & agents (inc. dev, reviewer, doc writer,)
+- [x] Move workspace under /home/smith/workspace (host mapped) + /home/smith as volumes.
+- [x] OpenCode: add default skills & agents (inc. dev, reviewer, doc writer,)
 - [ ] Rework just commands:
   - [ ] just list => just help
   - [ ] Add back start command
@@ -30,7 +30,7 @@
 
 ## Languages (+ formatter + debuggers)
 
-- [ ] Kubernetes => yaml schemas support @P1 (same for compose)
+- [x] Kubernetes => yaml schemas support @P1 (same for compose)
 - [ ] typescript (dap missing) @P1
 - [ ] java
 - [ ] Python+uv
@@ -42,10 +42,6 @@
 
 - [ ] Add ssh server access with dropbear @P2
 - [ ] Add brew to the toolchain
-
-## CLI and Shell
-
-- [ ] Add starship support feature
 
 ## Helix Editor
 
