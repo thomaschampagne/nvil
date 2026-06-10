@@ -1,6 +1,6 @@
 keybinds clear-defaults=true {
     locked {
-        bind "Ctrl l" { SwitchToMode "normal"; }
+        bind "Ctrl /" { SwitchToMode "normal"; }
     }
     pane {
         bind "left" { MoveFocus "left"; }
@@ -144,7 +144,7 @@ keybinds clear-defaults=true {
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
         bind "Alt f" { ToggleFloatingPanes; }
-        bind "Ctrl l" { SwitchToMode "locked"; }
+        bind "Ctrl /" { SwitchToMode "locked"; }
         bind "Alt h" { MoveFocusOrTab "left"; }
         bind "Alt i" { MoveTab "left"; }
         bind "Alt j" { MoveFocus "down"; }
@@ -205,23 +205,18 @@ keybinds clear-defaults=true {
         bind "u" { HalfPageScrollUp; }
     }
     shared_among "locked" "normal" {
-        // Tab navigation (1–9, 0 for tab 10)
+        // Tab navigation (1–5)
         bind "Alt 1" { GoToTab 1; }
         bind "Alt 2" { GoToTab 2; }
         bind "Alt 3" { GoToTab 3; }
         bind "Alt 4" { GoToTab 4; }
         bind "Alt 5" { GoToTab 5; }
-        bind "Alt 6" { GoToTab 6; }
-        bind "Alt 7" { GoToTab 7; }
-        bind "Alt 8" { GoToTab 8; }
-        bind "Alt 9" { GoToTab 9; }
-        bind "Alt 0" { GoToTab 10; }
 
         // Panel navigation
-        bind "Ctrl Shift h" { MoveFocus "left"; }
+        bind "Ctrl Shift h" { MoveFocusOrTab "left"; }
         bind "Ctrl Shift j" { MoveFocus "down"; }
         bind "Ctrl Shift k" { MoveFocus "up"; }
-        bind "Ctrl Shift l" { MoveFocus "right"; }
+        bind "Ctrl Shift l" { MoveFocusOrTab "right"; }
     }
     entersearch {
         bind "Ctrl c" { SwitchToMode "scroll"; }
