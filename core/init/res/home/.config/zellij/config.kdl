@@ -217,6 +217,9 @@ keybinds clear-defaults=true {
         bind "Ctrl Shift j" { MoveFocus "down"; }
         bind "Ctrl Shift k" { MoveFocus "up"; }
         bind "Ctrl Shift l" { MoveFocusOrTab "right"; }
+
+        // Allow toggle floating pones in all modes
+        bind "Alt f" { ToggleFloatingPanes; }
     }
     entersearch {
         bind "Ctrl c" { SwitchToMode "scroll"; }
@@ -296,7 +299,7 @@ web_client {
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-// theme "catppuccin-macchiato"
+theme "catppuccin-macchiato"
 
 // Choose the base input mode of zellij.
 // Default: normal
@@ -306,7 +309,7 @@ web_client {
 // Choose the path to the default shell that zellij will use for opening new panes
 // Default: $SHELL
 //
-default_shell "nu"
+default_shell "zsh"
 
 // Choose the path to override cwd that zellij will use for opening new panes
 //
