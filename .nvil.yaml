@@ -1,18 +1,21 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-go/master/schema/compose-spec.json
 services:
   nvil:
     container_name: ${NVIL_CONTAINER_NAME:-nvil}
     image: ${NVIL_IMAGE:-ghcr.io/thomaschampagne/nvil-full:latest}
     hostname: ${NVIL_CONTAINER_NAME:-nvil}
     restart: unless-stopped
-    userns_mode: host
     env_file:
       - .env
-    working_dir: /workspace
+    working_dir: /home/smith/workspace
     volumes:
-      - .:/workspace:delegated
+      - nvil-home-data:/home/smith
+      - .:/home/smith/workspace
     network_mode: host
     cap_add:
       - NET_RAW
     stdin_open: true
     tty: true
+
+volumes:
+  nvil-home-data:
+    name: ${NVIL_HOME_DATA_NAME:-default-nvil-home-data}
