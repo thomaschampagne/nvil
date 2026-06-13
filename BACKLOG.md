@@ -26,27 +26,27 @@
 
 ## Bugs
 
+- [ ] Helix keyboard shortcut / action to yamk/clipboard relative file path (<https://www.reddit.com/r/HelixEditor/comments/1cbqouk/copy_a_current_buffer_path_to_a_clipboard/>) @P1
 - [ ] Lazygit hunk cpy (ctlr-o) trigger error tried "sudo dnf install xclip wl-clipboard xsel" but still fails
 
 ## Languages (+ formatter + debuggers)
 
-- [x] Kubernetes => yaml schemas support @P1 (same for compose)
 - [ ] typescript (dap missing) @P1
+  - [ ] angular
+  - [ ] react
 - [ ] java
 - [ ] Python+uv
-- [ ] clang
 - [ ] Rust
+- [ ] clang
 - [ ] dotfile
 
 ## System
 
 - [ ] Add ssh server access with dropbear @P2
-- [ ] Add brew to the toolchain
 
 ## Helix Editor
 
 - [x] Integrate `yazi` file manager with Helix => Open Yazi when opening helix file explorer @P1
-- [ ] Helix keyboard shortcut / action to yamk/clipboard relative file path (<https://www.reddit.com/r/HelixEditor/comments/1cbqouk/copy_a_current_buffer_path_to_a_clipboard/>) @P1
 - [ ] Helix keyboard shortcut for :wqa!
 - [ ] Spellcheck (https://www.reddit.com/r/HelixEditor/comments/10r5t56/spellcheck_in_helix/)
 
