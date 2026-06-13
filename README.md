@@ -11,22 +11,21 @@
 # NVIL
 
 <!--toc:start-->
-
-- [Requirements](#requirements)
-- [Quick Start](#quick-start)
-- [Features](#features)
-- [NVIL vs Dev Containers](#nvil-vs-dev-containers)
-- [Architecture](#architecture)
-- [Usage](#usage)
-  - [Environment Variables](#environment-variables)
-  - [Setup](#setup)
-  - [Lifecycle Commands](#lifecycle-commands)
-- [Build Your Own Flavor](#build-your-own-flavor)
-- [Available Tools in Full Flavor](#available-tools-in-full-flavor)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
-
+- [NVIL](#nvil)
+  - [Requirements](#requirements)
+  - [Quick Start](#quick-start)
+  - [Features](#features)
+  - [NVIL vs Dev Containers](#nvil-vs-dev-containers)
+  - [Architecture](#architecture)
+  - [Usage](#usage)
+    - [Environment Variables](#environment-variables)
+    - [Setup](#setup)
+    - [Lifecycle Commands](#lifecycle-commands)
+  - [Build Your Own Flavor](#build-your-own-flavor)
+  - [Available Tools in Full Flavor](#available-tools-in-full-flavor)
+  - [Project Structure](#project-structure)
+  - [Contributing](#contributing)
+  - [License](#license)
 <!--toc:end-->
 
 ## Requirements

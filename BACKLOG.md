@@ -3,11 +3,11 @@
 ## Triage
 
 - [ ] Add `https://github.com/bug-ops/helix-trainer` as a feature. You will need to add sound lib to run it `sudo dnf install alsa-lib`
-- [x] Move workspace under /home/smith/workspace (host mapped) + /home/smith as volumes.
-- [x] OpenCode: add default skills & agents (inc. dev, reviewer, doc writer,)
+- [ ] OpenCode: add default generic skills & agents (inc. dev, reviewer, doc writer) to the feature
 - [ ] Rework just commands:
-  - [ ] just list => just help
-  - [ ] Add back start command
+  - [x] just list => just help
+  - [x] Add back start command
+  - [ ] Avoid to start podman machine if already running.
   - [ ] need to override default command: start only zsh instead of zellij for instance
   - [ ] view current nvil machine running (--list)
   - [ ] connect using nvil machine identifier (same for delete/stop/start)

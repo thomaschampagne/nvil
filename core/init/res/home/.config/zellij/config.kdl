@@ -205,21 +205,33 @@ keybinds clear-defaults=true {
         bind "u" { HalfPageScrollUp; }
     }
     shared_among "locked" "normal" {
-        // Tab navigation (1–5)
+        // Fast Tab navigation (1–5)
         bind "Alt 1" { GoToTab 1; }
         bind "Alt 2" { GoToTab 2; }
         bind "Alt 3" { GoToTab 3; }
         bind "Alt 4" { GoToTab 4; }
         bind "Alt 5" { GoToTab 5; }
 
-        // Panel navigation
+        // Fast Panel navigation
         bind "Ctrl Shift h" { MoveFocusOrTab "left"; }
         bind "Ctrl Shift j" { MoveFocus "down"; }
         bind "Ctrl Shift k" { MoveFocus "up"; }
         bind "Ctrl Shift l" { MoveFocusOrTab "right"; }
 
-        // Allow toggle floating pones in all modes
+        // Fast Tab/Panes controls
         bind "Alt f" { ToggleFloatingPanes; }
+        bind "Ctrl Shift p" { NewPane; }
+        bind "Ctrl Shift t" { NewTab; }
+        bind "Ctrl Shift x" { CloseFocus; }
+        bind "Ctrl Shift [" { PreviousSwapLayout; }
+        bind "Ctrl Shift ]" { NextSwapLayout; }
+        bind "Ctrl Shift left" { Resize "Increase left"; }
+        bind "Ctrl Shift down" { Resize "Increase down"; }
+        bind "Ctrl Shift up" { Resize "Increase up"; }
+        bind "Ctrl Shift right" { Resize "Increase right"; }
+
+        // Fast Quit
+        bind "Ctrl Shift w" { Quit; }
     }
     entersearch {
         bind "Ctrl c" { SwitchToMode "scroll"; }
@@ -361,7 +373,7 @@ pane_frames false
 //   - detach (Default)
 //   - quit
 //
-// on_force_close "quit"
+on_force_close "quit"
 
 // Configure the scroll back buffer size
 // This is the number of lines zellij stores for each pane in the scroll back
