@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "harper-ls",
+    "command": "harper-ls",
+    "description": "Grammar and spell checking language server for Helix",
+    "repo_url": "https://github.com/harper-ls/harper-ls",
+    "licence": "Apache-2.0",
+    "packageManager": "mise",
+    "category": "development"
+  }
+]

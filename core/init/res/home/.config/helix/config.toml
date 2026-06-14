@@ -11,6 +11,7 @@ auto-format = true
 trim-final-newlines = true
 trim-trailing-whitespace = true
 completion-trigger-len = 0   # triggers lsp completions as soon as you enter insert mode or move the cursor
+end-of-line-diagnostics = "warning"  # Show spellcheck diagnostics inline only for warnings+
 
 # Auto-save configuration (Updated according to latest docs)
 [editor.auto-save]

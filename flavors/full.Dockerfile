@@ -30,6 +30,9 @@ COPY --parents --chown=${NVIL_USER}:${NVIL_USER} ./feats/languages/golang /nvil/
 # Dockerfile
 COPY --parents --chown=${NVIL_USER}:${NVIL_USER} ./feats/languages/dockerfile /nvil/.tmp/
 
+# Harper-ls grammar and spell checking language server for Helix
+COPY --parents --chown=${NVIL_USER}:${NVIL_USER} ./feats/tools/development/harper-ls /nvil/.tmp/
+
 # ================================ END - CHOOSE YOUR FEATURES ABOVE ================================ #
 
 # Bulk apply feats
