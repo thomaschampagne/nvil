@@ -223,15 +223,21 @@ keybinds clear-defaults=true {
         bind "Ctrl Shift p" { NewPane; }
         bind "Ctrl Shift t" { NewTab; }
         bind "Ctrl Shift x" { CloseFocus; }
-        bind "Ctrl Shift [" { PreviousSwapLayout; }
-        bind "Ctrl Shift ]" { NextSwapLayout; }
+
+        // Fast Tabs/Panes moves
+        bind "Alt [" { PreviousSwapLayout; }
+        bind "Alt ]" { NextSwapLayout; }
         bind "Ctrl Shift left" { Resize "Increase left"; }
         bind "Ctrl Shift down" { Resize "Increase down"; }
         bind "Ctrl Shift up" { Resize "Increase up"; }
         bind "Ctrl Shift right" { Resize "Increase right"; }
 
+		// Fast Renaming Tabs/Panes
+		bind "F2" { SwitchToMode "renametab"; TabNameInput 0; }
+		bind "F3" { SwitchToMode "renamepane"; PaneNameInput 0; }
+
         // Fast Quit
-        bind "Ctrl Shift w" { Quit; }
+		bind "Ctrl q" { Quit; }
     }
     entersearch {
         bind "Ctrl c" { SwitchToMode "scroll"; }
@@ -240,12 +246,16 @@ keybinds clear-defaults=true {
     }
     renametab {
         bind "esc" { UndoRenameTab; SwitchToMode "tab"; }
+		bind "F2" { UndoRenameTab; SwitchToMode "normal"; }
+		bind "F3" { } // Do nothing on renamepane
     }
     shared_among "renametab" "renamepane" {
         bind "Ctrl c" { SwitchToMode "normal"; }
     }
     renamepane {
         bind "esc" { UndoRenamePane; SwitchToMode "pane"; }
+		bind "F2" { } // Do nothing on renametab
+		bind "F3" { SwitchToMode "normal"; }
     }
     shared_among "session" "tmux" {
         bind "d" { Detach; }
