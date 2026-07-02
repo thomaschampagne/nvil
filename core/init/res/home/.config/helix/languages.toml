@@ -41,6 +41,54 @@ name = "yaml"
 formatter = { command = "dprint", args = ["fmt", "--stdin", "yaml"] }
 auto-format = true
 
+# Schemas Refs
+[language-server.yaml-language-server.config.yaml.schemas]
+# - K8s
+kubernetes = [
+  "*pod*.{yml,yaml}",
+  "*deployment*.{yml,yaml}",
+  "*statefulset*.{yml,yaml}",
+  "*daemonset*.{yml,yaml}",
+  "*replicaset*.{yml,yaml}",
+  "*job*.{yml,yaml}",
+  "*cronjob*.{yml,yaml}",
+  "*configmap*.{yml,yaml}",
+  "*secret*.{yml,yaml}",
+  "*pv*.{yml,yaml}",
+  "*pvc*.{yml,yaml}",
+  "*storageclass*.{yml,yaml}",
+  "*service*.{yml,yaml}",
+  "*ingress*.{yml,yaml}",
+  "*networkpolicy*.{yml,yaml}",
+  "*endpoint*.{yml,yaml}",
+  "*hpa*.{yml,yaml}",
+  "*poddisruptionbudget*.{yml,yaml}",
+  "*role*.{yml,yaml}",
+  "*rolebinding*.{yml,yaml}",
+  "*clusterrole*.{yml,yaml}",
+  "*clusterrolebinding*.{yml,yaml}",
+  "*serviceaccount*.{yml,yaml}",
+  "*namespace*.{yml,yaml}",
+  "*node*.{yml,yaml}",
+  "*crd*.{yml,yaml}",
+  "*priorityclass*.{yml,yaml}",
+  "*runtimeclass*.{yml,yaml}",
+  "*ingressclass*.{yml,yaml}",
+]
+"http://json.schemastore.org/kustomization" = "kustomization.{yml,yaml}"
+# - Compose
+"https://raw.githubusercontent.com/compose-spec/compose-go/master/schema/compose-spec.json" = "*compose*.{yml,yaml}"
+# - Github CI
+"http://json.schemastore.org/github-workflow" = ".github/workflows/*.{yml,yaml}"
+"http://json.schemastore.org/github-action" = ".github/action.{yml,yaml}"
+# - GitLab CI
+"https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json" = [".gitlab-ci.{yml,yaml}", ".gitlab/ci/*.{yml,yaml}"]
+# - Azure Pipelines
+"https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json" = ["azure-pipelines.{yml,yaml}"]
+
+[language-server.yaml-language-server.config.yaml.format]
+enable = true
+
 # --- XML/HTML ---
 [[language]]
 name = "xml"

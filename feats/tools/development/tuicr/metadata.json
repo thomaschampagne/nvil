@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "tuicr",
+    "command": "tuicr",
+    "description": "Terminal UI for code review with vim keybindings and GitHub PR integration",
+    "repo_url": "https://github.com/agavra/tuicr",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "development"
+  }
+]

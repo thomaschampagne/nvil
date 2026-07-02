@@ -9,7 +9,8 @@ cursorline = true # Highlight the current line for better visibility
 soft-wrap.enable = true # Enable visual line wrapping for long lines
 auto-format = true
 trim-final-newlines = true
-trim-trailing-whitespace = true
+# trim-trailing-whitespace = true
+completion-trigger-len = 0   # triggers lsp completions as soon as you enter insert mode or move the cursor
 
 # Auto-save configuration (Updated according to latest docs)
 [editor.auto-save]
@@ -45,7 +46,7 @@ select = "underline" # Underline cursor when in selection mode
 
 [editor.whitespace.render]
 space = "all" # White-spaces dots
-newline = "all"
+# newline = "all"
 
 [editor.file-picker]
 hidden = false # Show dot files/folders in file picker
@@ -62,12 +63,34 @@ hidden = false # Show dot files/folders in file picker
   ":reload-all",
 ]
 
+# Opens yazi file manager in a new temporary buffer and reloads after closing
+"C-y" = [
+  ":new",
+  ":insert-output yazi",
+  ":set mouse false",
+  ":set mouse true",
+  ":buffer-close!",
+  ":redraw",
+  ":reload-all",
+]
+
 # Comment current line and move down
 "C-c" = ["toggle_comments", "move_line_down"]
 # Move line down/up
 "A-j" = ["extend_to_line_bounds", "delete_selection", "move_line_down", "paste_after"]
 "A-k" = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
 
+# L/R word navigation
+C-right = "move_next_word_start"
+C-left = "move_prev_word_end"
+
 [keys.insert]
 # Simple 'jj' sequence to quickly escape back to normal mode
 j = { j = "normal_mode" }
+# L/R word navigation
+C-right = "move_next_word_start"
+C-left = "move_prev_word_end"
+
+[keys.select]
+C-right = "extend_next_word_start"
+C-left = "extend_prev_word_end"

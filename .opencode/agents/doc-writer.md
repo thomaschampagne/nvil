@@ -132,7 +132,7 @@ Use mise as the primary package manager for dev tools. It provides version manag
 ```bash
 #!/bin/bash
 # Install script for grex feature
-set -euo pipefail
+set -eo pipefail
 source /nvil/core/utils/feats.require.sh
 mise use -g grex@latest
 ```

@@ -99,10 +99,6 @@ if [ -d "/nvil/feats" ]; then
   while IFS= read -r -d '' meta_file; do
     load_metadata_file "$meta_file" "pick"
   done < <(find /nvil/feats -name "metadata.json" -type f -print0)
-elif [ -d "/workspace/feats" ]; then
-  while IFS= read -r -d '' meta_file; do
-    load_metadata_file "$meta_file" "pick"
-  done < <(find /workspace/feats -name "metadata.json" -type f -print0)
 fi
 
 lookup_meta() {
@@ -502,8 +498,8 @@ render_shell() {
 # Render: markdown
 # ============================================================
 render_markdown() {
-  printf '| %-6s | %-15s | %-30s | %-15s | %-70s | %-15s | %-50s | %-10s |\n' "Scope" "Category" "Name" "Version" "Description" "Licence" "Repo" "Manager"
-  printf '| %-6s | %-15s | %-30s | %-15s | %-70s | %-15s | %-50s | %-10s |\n' "------" "---------------" "------------------------------" "---------------" "----------------------------------------------------------------------" "---------------" "--------------------------------------------------" "----------"
+  printf '| %-6s | %-15s | %-30s | %-15s | %-70s | %-15s | %-10s |\n' "Scope" "Category" "Name" "Version" "Description" "Licence" "Manager"
+  printf '| %-6s | %-15s | %-30s | %-15s | %-70s | %-15s | %-10s |\n' "------" "---------------" "------------------------------" "---------------" "----------------------------------------------------------------------" "---------------" "----------"
 
   for idx in "${SORTED_INDICES[@]}"; do
     scope="${PKG_SCOPES[$idx]}"
@@ -514,7 +510,8 @@ render_markdown() {
     licence="${PKG_LICENCES[$idx]}"
     repo="${PKG_REPOS[$idx]}"
     manager="${PKG_MANAGERS[$idx]}"
-    printf '| %-6s | %-15s | %-30s | %-15s | %-70s | %-15s | %-50s | %-10s |\n' "$scope" "$category" "$name" "$version" "$desc" "$licence" "$repo" "$manager"
+    [ "$repo" != "-" ] && name="[$name]($repo)"
+    printf '| %-6s | %-15s | %-30s | %-15s | %-70s | %-15s | %-10s |\n' "$scope" "$category" "$name" "$version" "$desc" "$licence" "$manager"
   done
 
   printf '\nTotal: %d packages\n' "$COUNT"

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo pipefail
+set -eo pipefail
 
 echo "============================================================"
 echo "exec \"$(realpath "$0")\" as \"$(whoami)\" user"
@@ -19,10 +19,11 @@ dnf upgrade -y && dnf autoremove -y && dnf clean all -y &&
   chown ${NVIL_USER}:${NVIL_USER} -R ./ && cp -ar ./init/res/home/. /home/${NVIL_USER} &&
   # Make /home/linuxbrew writable for Homebrew installation for NVIL_USER
   mkdir -p /home/linuxbrew/ && chown ${NVIL_USER}:${NVIL_USER} /home/linuxbrew/
-  # Init user install & config
+  # Init user install
   runuser -u ${NVIL_USER} -- bash -c "./init/system/user.install.sh" &&
-  runuser -u ${NVIL_USER} -- bash -c "./init/system/user.config.sh" &&
   # Install required features as user
   runuser -u ${NVIL_USER} -- bash -c "./init/feats/required.install.sh" &&
+  # Perform user config
+  runuser -u ${NVIL_USER} -- bash -c "./init/system/user.config.sh" &&
   # Drop init folder
   rm -rf ./init

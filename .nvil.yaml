@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-go/master/schema/compose-spec.json
 services:
   nvil:
     container_name: ${NVIL_CONTAINER_NAME:-nvil}
@@ -7,11 +6,17 @@ services:
     restart: unless-stopped
     env_file:
       - .env
-    working_dir: /workspace
+    working_dir: /home/smith/workspace
     volumes:
-      - .:/workspace:delegated
+      - /mnt/wslg/runtime-dir/wayland-0:/run/user/smith/wayland-0:ro # Required to get full copy/paste support through wayland (helix needs it)
+      - nvil-home-data:/home/smith
+      - .:/home/smith/workspace
     network_mode: host
     cap_add:
       - NET_RAW
     stdin_open: true
     tty: true
+
+volumes:
+  nvil-home-data:
+    name: ${NVIL_HOME_DATA_NAME:-default-nvil-home-data}

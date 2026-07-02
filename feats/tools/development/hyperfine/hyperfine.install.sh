@@ -3,7 +3,7 @@
 # Description: A command-line benchmarking tool.
 # Repo Link: https://github.com/sharkdp/hyperfine
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 

@@ -112,7 +112,7 @@ Required. Named `<name>.install.sh`. Must be executable.
 ```bash
 #!/bin/bash
 
-set -euo pipefail
+set -eo pipefail
 
 # Load requirements (brew + mise in PATH)
 source /nvil/core/utils/feats.require.sh
@@ -150,14 +150,11 @@ mise use -g toolname@latest
 mise use -g toolname@1.23
 ```
 
-#### pnpm (for Node.js LSP servers and formatters)
+#### npm (for Node.js LSP servers and formatters)
 
 ```bash
-pnpm add -g dockerfile-language-server-nodejs
-
-# Force pnpm store prune --force
-pnpm store prune --force
-pnpm cache delete
+npm add -g dockerfile-language-server-nodejs
+npm cache verify
 ```
 
 #### dnf (for system packages - should be in core init, not features)
@@ -229,7 +226,7 @@ If a feature requires another feature to be present:
 ```bash
 #!/bin/bash
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 
@@ -253,7 +250,6 @@ go clean -cache -modcache -testcache
 ### pnpm
 
 ```bash
-pnpm store prune --force
 pnpm cache delete
 ```
 
@@ -294,7 +290,7 @@ The `--parents` flag preserves the directory structure. The feature folder is co
 ```bash
 #!/bin/bash
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 
@@ -323,7 +319,7 @@ mise use -g fzf
 ```bash
 #!/bin/bash
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 
@@ -361,16 +357,15 @@ EOF
 ```bash
 #!/bin/bash
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 
 # Install LSP
-pnpm add -g dockerfile-language-server-nodejs
+npm add -g dockerfile-language-server-nodejs
 
-# Clean pnpm
-pnpm store prune --force
-pnpm cache delete
+# Clean npm
+npm cache verify
 
 # Add formatter
 dprint add --global dockerfile
@@ -390,7 +385,7 @@ EOF
 ```bash
 #!/bin/bash
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 
@@ -405,7 +400,7 @@ echo 'export PATH=$PATH:/home/${USERNAME}/.bun/bin' >> ~/.zshrc
 ## Checklist for new features
 
 - [ ] Directory created under correct `feats/<category>/<name>/` path
-- [ ] `<name>.install.sh` starts with `#!/bin/bash` and `set -euo pipefail`
+- [ ] `<name>.install.sh` starts with `#!/bin/bash` and `set -eo pipefail`
 - [ ] Script sources `/nvil/core/utils/feats.require.sh`
 - [ ] Tool installed via appropriate package manager (mise preferred)
 - [ ] LSP servers, formatters, debuggers installed if applicable
@@ -419,7 +414,7 @@ echo 'export PATH=$PATH:/home/${USERNAME}/.bun/bin' >> ~/.zshrc
 
 ## Anti-patterns
 
-- Never skip `set -euo pipefail` - failures must abort the build
+- Never skip `set -eo pipefail` - failures must abort the build
 - Never leave caches uncleared - every MB matters in container images
 - Never use `dnf` in feature scripts - system packages belong in `core/init/system/main.install.sh`
 - Never use unquoted heredoc delimiters (`<< EOF` instead of `<< 'EOF'`) - variables will expand unexpectedly

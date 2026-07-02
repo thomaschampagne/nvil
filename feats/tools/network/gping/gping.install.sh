@@ -3,7 +3,7 @@
 # Description: Ping, but with a graph.
 # Repo Link: https://github.com/orf/gping
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 

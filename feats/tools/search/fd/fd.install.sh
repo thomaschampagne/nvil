@@ -3,7 +3,7 @@
 # Description: A simple, fast and user-friendly alternative to 'find'.
 # Repo Link: https://github.com/sharkdp/fd
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 

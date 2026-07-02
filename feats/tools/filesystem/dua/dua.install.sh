@@ -3,7 +3,7 @@
 # Description: A tool to conveniently learn about the disk usage of directories, fast.
 # Repo Link: https://github.com/Byron/dua-cli
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 

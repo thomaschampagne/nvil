@@ -1,16 +1,13 @@
 #!/bin/bash
 
-set -euo pipefail
+set -eo pipefail
 
 # Load requirements
 source /nvil/core/utils/feats.require.sh
 
 # Install dockerfile LSP
-pnpm add -g dockerfile-language-server-nodejs
-
-# Force pnpm store prune --force
-pnpm store prune --force
-pnpm cache delete
+npm add -g -y dockerfile-language-server-nodejs
+npm cache verify
 
 # Install yaml formatter
 dprint add --global dockerfile

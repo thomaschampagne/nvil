@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo pipefail
+set -eo pipefail
 
 # Ensure brew/mise is loaded in PATH
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"

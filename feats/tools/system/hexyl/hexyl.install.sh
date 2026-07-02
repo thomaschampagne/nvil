@@ -3,7 +3,7 @@
 # Description: A command-line hex viewer.
 # Repo Link: https://github.com/shstrmp/hexyl
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 

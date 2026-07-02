@@ -3,7 +3,7 @@
 # Description: A modern replacement for ps written in Rust.
 # Repo Link: https://github.com/dalance/procs
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 

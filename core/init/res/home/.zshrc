@@ -71,6 +71,3 @@ eval "export EDITOR=${NVIL_DEFAULT_EDITOR}"
 export PATH="$PATH:/nvil/core/cmd"
 # - Add mise (below export PATH)
 eval "$(~/.local/bin/mise activate zsh)"
-# - Add PNPM
-export PNPM_HOME="${PNPM_HOME:-$HOME/.local/share/pnpm}"
-export PATH="$PNPM_HOME:$PATH"

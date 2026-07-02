@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo pipefail
+set -eo pipefail
 
 echo "============================================================"
 echo "exec \"$(realpath "$0")\" as \"$(whoami)\" user"

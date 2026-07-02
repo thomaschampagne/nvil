@@ -3,7 +3,7 @@
 # Description: Terminal session recorder, streamer and player.
 # Repo Link: https://github.com/asciinema/asciinema
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 

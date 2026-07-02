@@ -3,7 +3,7 @@
 # Description: A powerful duplicate file finder and an enhanced fork of fdupes.
 # Repo Link: https://github.com/h2oai/jdupes
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 

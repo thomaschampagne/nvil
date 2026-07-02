@@ -3,7 +3,7 @@
 # Description: Find and verify credentials in your codebase.
 # Repo Link: https://github.com/trufflesecurity/trufflehog
 
-set -euo pipefail
+set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 

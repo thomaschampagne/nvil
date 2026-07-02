@@ -1,19 +1,16 @@
 #!/bin/bash
 
-set -euo pipefail
+set -eo pipefail
 
 # Load requirements
 source /nvil/core/utils/feats.require.sh
 
 # Required dependencies
-pnpm add -g \
+npm add -g -y \
   typescript@latest \
   typescript-language-server@latest \
   prettier@latest
-
-# Force pnpm store prune --force
-pnpm store prune --force
-pnpm cache delete
+npm cache verify
 
 # Helix language config
 cat >>~/.config/helix/languages.toml <<'EOF'

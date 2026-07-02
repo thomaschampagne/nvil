@@ -2,27 +2,26 @@
 
 ## Triage
 
-- [ ] Add `https://github.com/bug-ops/helix-trainer` as a feature. You will need to add sound lib to run it `sudo dnf install alsa-lib`
-- [ ] Move workspace under /home/smith/workspace (host mapped) + /home/smith as volumes.
-- [ ] OpenCode: add default skills & agents (inc. dev, reviewer, doc writer,)
+- [ ] Update/ensure latest fedora image beiing used
+- [ ] Add code reviews tool @ https://tuicr.dev/
+- [ ] OpenCode: add default generic skills & agents (inc. dev, reviewer, doc writer) to the feature
 - [ ] Rework just commands:
-  - [ ] just list => just help
-  - [ ] Add back start command
   - [ ] need to override default command: start only zsh instead of zellij for instance
   - [ ] view current nvil machine running (--list)
   - [ ] connect using nvil machine identifier (same for delete/stop/start)
-- [ ] Support Docker instead of podman only.
+- [ ] Add `https://github.com/bug-ops/helix-trainer` as a feature. You will need to add sound lib to run it `sudo dnf install alsa-lib`
 - [ ] Others tools to consider
 
   | Tool | Lang | Replaces | Why |
   |------|------|----------|-----|
-  | `dust` | Rust | du | Visual disk usage (complements dua/duf) |
-  | `bottom`/`btm` | Rust | top/htop | System monitor |
   | `choose` | Rust | cut/awk | Field selection |
   | `ouch` | Rust | tar/gzip | Compression tool |
   | `????` | rustgo | — | Tool to generate qrcode |
+  <!-- | `dust` | Rust | du | Visual disk usage (complements dua/duf) | -->
+  <!-- | `bottom`/`btm` | Rust | top/htop | System monitor | -->
 
 - [ ] Convert `core/init/feats/required.install.sh` as real feats
+- [ ] Support Docker instead of podman only.
 
 ## Bugs
 
@@ -30,27 +29,22 @@
 
 ## Languages (+ formatter + debuggers)
 
-- [ ] Kubernetes => yaml schemas support @P1 (same for compose)
 - [ ] typescript (dap missing) @P1
+  - [ ] angular
+  - [ ] react
 - [ ] java
 - [ ] Python+uv
-- [ ] clang
 - [ ] Rust
+- [ ] clang
 - [ ] dotfile
 
 ## System
 
 - [ ] Add ssh server access with dropbear @P2
-- [ ] Add brew to the toolchain
-
-## CLI and Shell
-
-- [ ] Add starship support feature
 
 ## Helix Editor
 
-- [ ] Integrate `yazi` file manager with Helix => Open Yazi when opening helix file explorer @P1
-- [ ] Helix keyboard shortcut / action to yamk/clipboard relative file path (<https://www.reddit.com/r/HelixEditor/comments/1cbqouk/copy_a_current_buffer_path_to_a_clipboard/>) @P1
+- [x] Integrate `yazi` file manager with Helix => Open Yazi when opening helix file explorer @P1
 - [ ] Helix keyboard shortcut for :wqa!
 - [ ] Spellcheck (https://www.reddit.com/r/HelixEditor/comments/10r5t56/spellcheck_in_helix/)
 

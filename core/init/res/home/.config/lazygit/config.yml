@@ -119,14 +119,20 @@ customCommands:
         title: "(optional) Related ticket number without '#'. Leave empty if none."
         key: "Ticket"
         initialValue: ""
-      - type: "confirm"
-        key: "Confirm"
-        title: "Commit"
-        body: "Are you sure you want to commit?"
+      - type: "menu"
+        key: "WhenToCommit"
+        title: "Commit now or later?"
+        options:
+          - name: "Now"
+            description: "Commit immediately"
+            value: "now"
+          - name: "Later"
+            description: "Want to review or cancel commit. Use 'c' shortcut to edit commit content"
+            value: "later"
     command: >
-      git commit
-      --message '{{.Form.Type}}{{if and .Form.Scope (ne .Form.Scope "none")}}({{.Form.Scope}}){{end}}{{if ne .Form.Breaking "no"}}{{.Form.Breaking}}{{end}}: {{.Form.Description}}{{if .Form.Ticket}} (#{{.Form.Ticket}}){{end}}'
-      {{if .Form.Body}}--message "{{if ne .Form.Breaking "no"}}BREAKING CHANGE: {{end}}{{.Form.Body}}"{{end}}
-      {{if .Form.Ticket}}--message "refers to #{{.Form.Ticket}}"{{end}}
-
+      if [ "{{.Form.WhenToCommit}}" = "later" ]; then
+        printf '%s\n' '{{.Form.Type}}{{if and .Form.Scope (ne .Form.Scope "none")}}({{.Form.Scope}}){{end}}{{if ne .Form.Breaking "no"}}{{.Form.Breaking}}{{end}}: {{.Form.Description}}{{if .Form.Ticket}} (#{{.Form.Ticket}}){{end}}' '' '{{if ne .Form.Breaking "no"}}BREAKING CHANGE: {{end}}{{.Form.Body}}' '' 'Ref: #{{.Form.Ticket}}' > .git/LAZYGIT_PENDING_COMMIT;
+      else
+        git commit --message '{{.Form.Type}}{{if and .Form.Scope (ne .Form.Scope "none")}}({{.Form.Scope}}){{end}}{{if ne .Form.Breaking "no"}}{{.Form.Breaking}}{{end}}: {{.Form.Description}}{{if .Form.Ticket}} (#{{.Form.Ticket}}){{end}}' {{if .Form.Body}}--message "{{if ne .Form.Breaking "no"}}BREAKING CHANGE: {{end}}{{.Form.Body}}"{{end}} {{if .Form.Ticket}}--message "Ref: #{{.Form.Ticket}}"{{end}};
+      fi
     loadingText: "Creating conventional commit..."
