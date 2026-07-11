@@ -3,8 +3,6 @@
 ## Triage
 
 - [ ] Update/ensure latest fedora image beiing used
-- [ ] Add code reviews tool @ https://tuicr.dev/
-- [ ] OpenCode: add default generic skills & agents (inc. dev, reviewer, doc writer) to the feature
 - [ ] Rework just commands:
   - [ ] need to override default command: start only zsh instead of zellij for instance
   - [ ] view current nvil machine running (--list)
@@ -16,7 +14,6 @@
   |------|------|----------|-----|
   | `choose` | Rust | cut/awk | Field selection |
   | `ouch` | Rust | tar/gzip | Compression tool |
-  | `????` | rustgo | — | Tool to generate qrcode |
   <!-- | `dust` | Rust | du | Visual disk usage (complements dua/duf) | -->
   <!-- | `bottom`/`btm` | Rust | top/htop | System monitor | -->
 
@@ -25,7 +22,12 @@
 
 ## Bugs
 
-- [ ] Lazygit hunk cpy (ctlr-o) trigger error tried "sudo dnf install xclip wl-clipboard xsel" but still fails
+- [ ] (Fixed?!) Lazygit hunk cpy (ctlr-o) trigger error tried "sudo dnf install xclip wl-clipboard xsel" but still fails
+
+## Tools
+
+- [ ] Add QRcode tui tool to generate qrcode
+- [ ] OpenCode: add default generic skills & agents (inc. dev, reviewer, doc writer) to the feature
 
 ## Languages (+ formatter + debuggers)
 
@@ -40,11 +42,10 @@
 
 ## System
 
-- [ ] Add ssh server access with dropbear @P2
+- [ ] Add ssh server access with dropbear @P2 ? Others?
 
 ## Helix Editor
 
-- [x] Integrate `yazi` file manager with Helix => Open Yazi when opening helix file explorer @P1
 - [ ] Helix keyboard shortcut for :wqa!
 - [ ] Spellcheck (https://www.reddit.com/r/HelixEditor/comments/10r5t56/spellcheck_in_helix/)
 
