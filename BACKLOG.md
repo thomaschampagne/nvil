@@ -2,6 +2,7 @@
 
 ## Triage
 
+- [ ] Show my public IP using https://api.ipify.org
 - [ ] Update/ensure latest fedora image beiing used
 - [ ] Rework just commands:
   - [ ] need to override default command: start only zsh instead of zellij for instance
@@ -10,10 +11,10 @@
 - [ ] Add `https://github.com/bug-ops/helix-trainer` as a feature. You will need to add sound lib to run it `sudo dnf install alsa-lib`
 - [ ] Others tools to consider
 
-  | Tool | Lang | Replaces | Why |
-  |------|------|----------|-----|
-  | `choose` | Rust | cut/awk | Field selection |
-  | `ouch` | Rust | tar/gzip | Compression tool |
+  | Tool     | Lang | Replaces | Why              |
+  | -------- | ---- | -------- | ---------------- |
+  | `choose` | Rust | cut/awk  | Field selection  |
+  | `ouch`   | Rust | tar/gzip | Compression tool |
   <!-- | `dust` | Rust | du | Visual disk usage (complements dua/duf) | -->
   <!-- | `bottom`/`btm` | Rust | top/htop | System monitor | -->
 
