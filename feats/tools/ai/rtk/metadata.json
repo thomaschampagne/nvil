@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "pick",
+    "name": "rtk",
+    "command": "rtk",
+    "description": "Terminal AI coding assistant",
+    "repo_url": "https://github.com/rtk-ai/rtk",
+    "licence": "MIT",
+    "packageManager": "mise",
+    "category": "ai"
+  }
+]

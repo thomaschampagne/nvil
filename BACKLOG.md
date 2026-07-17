@@ -27,7 +27,6 @@
 ## Tools
 
 - [ ] Add QRcode tui tool to generate qrcode
-- [ ] OpenCode: add default generic skills & agents (inc. dev, reviewer, doc writer) to the feature
 
 ## Languages (+ formatter + debuggers)
 
