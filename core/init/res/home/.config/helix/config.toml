@@ -48,9 +48,6 @@ select = "underline" # Underline cursor when in selection mode
 space = "all" # White-spaces dots
 # newline = "all"
 
-[editor.file-picker]
-hidden = false # Show dot files/folders in file picker
-
 [keys.normal]
 # Opens lazygit in a new temporary buffer and redraws Helix after closing
 "C-g" = [

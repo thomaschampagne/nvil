@@ -1,0 +1,99 @@
+# ============================================================
+# ~/.config/helix/ignore
+# Scope: picker (space-f) + global search (space-/) visibility only.
+# Does NOT affect git, builds, or LSP. Project .gitignore is already
+# read automatically inside git repos (git-ignore/git-global/git-exclude
+# all default true) — this file is for things you want hidden
+# everywhere, including non-git folders.
+# Dotfiles are already hidden by `hidden = true` (default) — no entries
+# needed for .cache, .idea, .vscode, .venv, .angular, .next, .nuxt,
+# .terraform, .pytest_cache, .mypy_cache, etc.
+# ============================================================
+
+# ---- OS cruft (not dot-prefixed) ----
+.DS_Store
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*~
+
+# ---- Editor swap/backup files (not dot-prefixed) ----
+*.swp
+*.swo
+*.swn
+*.un~
+\#*\#
+*.sublime-project
+*.sublime-workspace
+
+# ---- Truly universal dependency noise ----
+node_modules/
+vendor/
+target/
+__pycache__/
+*.py[cod]
+
+# ---- Compiled objects (kept narrow — .so/.dll/.dylib/.exe left OUT:
+#      too often legitimate checked-in binaries; let project .gitignore decide) ----
+*.o
+*.obj
+*.class
+
+# ---- Archives ----
+*.7z
+*.iso
+*.rar
+*.zip
+
+# ---- Backups ----
+*.bak
+*.backup
+
+# ---- Restore visibility: config/CI files matter for understanding & debugging ----
+!.air.toml
+!.babelrc
+!.browserslistrc
+!.bruno/
+!.cargo/
+!.circleci/
+!.commitlintrc*
+!.config/
+!.czrc
+!.dev/
+!.devcontainer/
+!.dockerignore
+!.editorconfig
+!.env
+!.env.*
+!.eslintrc*
+!.flake8
+!.gitattributes
+!.github/
+!.gitignore
+!.gitlab-ci.yml
+!.gitmodules
+!.golangci.yaml
+!.golangci.yml
+!.helix/
+!.helmignore
+!.husky/
+!.isort.cfg
+!.mvn/
+!.npmrc
+!.nvil/
+!.nvmrc
+!.pre-commit-config.yaml
+!.prettierrc*
+!.pylintrc
+!.python-version
+!.releaserc*
+!.rubocop.yml
+!.ruby-version
+!.rustfmt.toml
+!.terraform.lock.hcl
+!.travis.yml
