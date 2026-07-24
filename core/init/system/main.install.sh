@@ -39,6 +39,7 @@ dnf install -y --setopt=install_weak_deps=False \
   zsh \
   gcc \
   git \
+  git-crypt \
   openssl \
   ca-certificates \
   nano \
