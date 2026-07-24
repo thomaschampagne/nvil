@@ -89,29 +89,9 @@ kubernetes = [
 [language-server.yaml-language-server.config.yaml.format]
 enable = true
 
-# --- XML/HTML ---
+# --- XML ---
 [[language]]
 name = "xml"
 formatter = { command = "dprint", args = ["fmt", "--stdin", "xml"] }
 language-servers = ["xml-language-server", "emmet-language-server"]
-auto-format = true
-
-[[language]]
-name = "html"
-file-types = ["html", "htm"]
-formatter = { command = "dprint", args = ["fmt", "--stdin", "html"] }
-language-servers = ["vscode-html-language-server", "emmet-language-server"]
-auto-format = true
-
-# --- CSS/SCSS ---
-[[language]]
-name = "css"
-formatter = { command = "dprint", args = ["fmt", "--stdin", "css"] }
-language-servers = ["vscode-css-language-server", "emmet-language-server"]
-auto-format = true
-
-[[language]]
-name = "scss"
-formatter = { command = "dprint", args = ["fmt", "--stdin", "scss"] }
-language-servers = ["vscode-css-language-server", "emmet-language-server"]
 auto-format = true

@@ -1,0 +1,72 @@
+[
+  {
+    "scope": "pick",
+    "name": "typescript",
+    "command": "tsc",
+    "description": "Typed superset of JavaScript that compiles to plain JavaScript",
+    "repo_url": "https://github.com/microsoft/TypeScript",
+    "licence": "Apache-2.0",
+    "packageManager": "npm",
+    "category": "language"
+  },
+  {
+    "scope": "pick",
+    "name": "typescript-language-server",
+    "command": "typescript-language-server",
+    "description": "TypeScript/JavaScript language server using tsserver",
+    "repo_url": "https://github.com/typescript-language-server/typescript-language-server",
+    "licence": "MIT",
+    "packageManager": "npm",
+    "category": "language-server"
+  },
+  {
+    "scope": "pick",
+    "name": "prettier",
+    "command": "prettier",
+    "description": "Opinionated code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML",
+    "repo_url": "https://github.com/prettier/prettier",
+    "licence": "MIT",
+    "packageManager": "npm",
+    "category": "formatter"
+  },
+  {
+    "scope": "pick",
+    "name": "@angular/cli",
+    "command": "ng",
+    "description": "Angular CLI for creating and managing Angular applications",
+    "repo_url": "https://github.com/angular/angular-cli",
+    "licence": "MIT",
+    "packageManager": "npm",
+    "category": "language-server"
+  },
+  {
+    "scope": "pick",
+    "name": "@angular/language-server",
+    "command": "ngserver",
+    "description": "Angular language server for editor integration and IntelliSense",
+    "repo_url": "https://github.com/angular/vscode-ng-language-service",
+    "licence": "MIT",
+    "packageManager": "npm",
+    "category": "language-server"
+  },
+  {
+    "scope": "pick",
+    "name": "@angular/language-service",
+    "command": "ngserver",
+    "description": "Angular language service for template type checking and completions",
+    "repo_url": "https://github.com/angular/vscode-ng-language-service",
+    "licence": "MIT",
+    "packageManager": "npm",
+    "category": "language-server"
+  },
+  {
+    "scope": "pick",
+    "name": "tslib",
+    "command": "tslib",
+    "description": "TypeScript helper library for effective TypeScript",
+    "repo_url": "https://github.com/tslint-org/tslib",
+    "licence": "Apache-2.0",
+    "packageManager": "npm",
+    "category": "language"
+  }
+]

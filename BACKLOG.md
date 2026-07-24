@@ -22,7 +22,7 @@
 
 ## Bugs
 
-- [ ] (Fixed?!) Lazygit hunk cpy (ctlr-o) trigger error tried "sudo dnf install xclip wl-clipboard xsel" but still fails
+- [ ] ...
 
 ## Tools
 
@@ -30,14 +30,16 @@
 
 ## Languages (+ formatter + debuggers)
 
-- [ ] typescript (dap missing) @P1
-  - [ ] angular
-  - [ ] react
+- [ ] Web
+  - [ ] React
+  - [ ] Typescript:
+    - [ ] dap missing
+    - [ ] upgrade to typescript 7.1.x with angular ngserver lsp working in templates (only work with typescript 6 at the momentl)
+- [ ] Rust
 - [ ] java
 - [ ] Python+uv
-- [ ] Rust
-- [ ] clang
 - [ ] dotfile
+- [ ] clang
 
 ## System
 

@@ -19,7 +19,7 @@ USER ${NVIL_USER}
 COPY --parents --chown=${NVIL_USER}:${NVIL_USER} ./feats/tools/ /nvil/.tmp/
 
 # Javascript/Typescript support with eslint
-COPY --parents --chown=${NVIL_USER}:${NVIL_USER} ./feats/languages/js-ts /nvil/.tmp/
+COPY --parents --chown=${NVIL_USER}:${NVIL_USER} ./feats/languages/web /nvil/.tmp/
 
 # Add bun Javascript Runtime
 COPY --parents --chown=${NVIL_USER}:${NVIL_USER} ./feats/runtimes/bun /nvil/.tmp/
