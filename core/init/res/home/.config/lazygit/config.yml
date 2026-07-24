@@ -1,4 +1,8 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+keybinding:
+  commits:
+    moveDownCommit: '<alt+j>'
+    moveUpCommit: '<alt+k>'
 customCommands:
   - key: "K"
     context: "files"
