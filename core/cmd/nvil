@@ -42,6 +42,11 @@ list_pkgs() {
   bash "${script_dir}/list.pkgs.sh" "$@"
 }
 
+# Function to show version
+show_version() {
+  echo "${NVIL_VERSION:-unknown}"
+  exit 0
+}
 # Function to display help
 show_help() {
   echo "Usage: $0 [OPTION]"
@@ -68,7 +73,7 @@ for arg in "$@"; do
     --format=*)
       FORMAT_ARG="$arg"
       ;;
-    --update | --list | --help)
+    --update | --list | --version | --help)
       ACTION="$arg"
       ;;
   esac
@@ -90,6 +95,9 @@ case "$ACTION" in
     else
       list_pkgs
     fi
+    ;;
+  --version)
+    show_version
     ;;
   --help)
     show_help
