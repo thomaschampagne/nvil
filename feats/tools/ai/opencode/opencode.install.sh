@@ -19,7 +19,6 @@ eval "$(~/.local/bin/mise activate bash)" # Reactivate mise for usage
 # Meta / Discovery
 # ─────────────────────────────────────────────
 npx --yes skills add https://github.com/vercel-labs/skills --skill find-skills --global --yes --agent opencode        # Find the right skill for any task
-npx --yes skills add https://github.com/mattpocock/skills --skill writing-great-skills --global --yes --agent opencode       # Create your own custom skills
 
 # ─────────────────────────────────────────────
 # Architecture & Code Quality
@@ -62,7 +61,6 @@ npx --yes skills add https://github.com/anthropics/skills --skill webapp-testing
 npx --yes skills add https://github.com/mattpocock/skills --skill grill-me --global --yes --agent opencode                       # Get brutal feedback on your code
 npx --yes skills add https://github.com/mattpocock/skills --skill grill-with-docs --global --yes --agent opencode                # Feedback grounded in the docs
 npx --yes skills add https://github.com/mattpocock/skills --skill grilling --global --yes --agent opencode                       # General code interrogation
-npx --yes skills add https://github.com/mattpocock/skills --skill qa --global --yes --agent opencode                             # QA process & checklist
 npx --yes skills add https://github.com/mattpocock/skills --skill code-review --global --yes --agent opencode                    # Request structured code reviews
 npx --yes skills add https://github.com/obra/superpowers --skill requesting-code-review --global --yes --agent opencode          # How to get better reviews
 npx --yes skills add https://github.com/obra/superpowers --skill verification-before-completion --global --yes --agent opencode  # Verify before marking done
