@@ -98,7 +98,7 @@ jobs:
             ${{ env.build_args }}
             NVIL_CORE_IMAGE=${{ env.NVIL_CORE_IMAGE }}
           secret-envs: |
-            GITHUB_TOKEN
+            GITHUB_TOKEN=GITHUB_TOKEN
           platforms: linux/amd64
           provenance: false
           push: true
@@ -120,7 +120,7 @@ jobs:
             ${{ env.build_args }}
             NVIL_CORE_IMAGE=${{ env.NVIL_CORE_IMAGE }}
           secret-envs: |
-            GITHUB_TOKEN
+            GITHUB_TOKEN=GITHUB_TOKEN
           platforms: linux/amd64
           provenance: false
           push: true
