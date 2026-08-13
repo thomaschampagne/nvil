@@ -13,13 +13,15 @@ OMP_THEME_DIR="${HOME}/.cache/oh-my-posh/themes"
 mkdir -p "${OMP_THEME_DIR}"
 
 echo "Fetching oh-my-posh theme list..."
-THEMES=$(curl -fsSL https://api.github.com/repos/JanDeDobbeleer/oh-my-posh/contents/themes | jq -r '.[].name')
+AUTH_HEADER=""
+[ -n "$GITHUB_TOKEN" ] && AUTH_HEADER="-H \"Authorization: token $GITHUB_TOKEN\""
+THEMES=$(eval "curl -fsSL $AUTH_HEADER https://api.github.com/repos/JanDeDobbeleer/oh-my-posh/contents/themes" | jq -r '.[].name')
 THEME_COUNT=$(echo "$THEMES" | wc -l)
 echo "Downloading ${THEME_COUNT} themes to ${OMP_THEME_DIR}..."
 for THEME in $THEMES; do
   [ "$THEME" = "schema.json" ] && continue
   echo "  Downloading ${THEME}..."
-  curl -fsSL "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/${THEME}" \
+  eval "curl -fsSL $AUTH_HEADER \"https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/${THEME}\"" \
     -o "${OMP_THEME_DIR}/${THEME}"
 done
 echo "Oh My Posh themes downloaded successfully."

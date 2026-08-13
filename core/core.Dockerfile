@@ -26,7 +26,8 @@ ARG NVIL_WORKSPACE_DIR
 ARG NVIL_FLAVOR="nvil-core"
 ARG NVIL_GIT_USER_NAME="Smith Black"
 ARG NVIL_GIT_USER_EMAIL="smith@nvil.dev"
-ARG NVIL_OMP_THEME="spaceship" # Can be overloaded at build w/ ARG or runtime with ENV with any theme from https://ohmyposh.dev/docs/themes
+# Can be overloaded at build w/ ARG or runtime with ENV with any theme from https://ohmyposh.dev/docs/themes
+ARG NVIL_OMP_THEME="spaceship"
 
 # Envs From Args build
 # - Reinject images ARGS as ENVs for container runtime
@@ -69,7 +70,13 @@ WORKDIR /nvil
 
 # ---- Core Init ---- 
 COPY ./core/ ./core/
-RUN echo "Creating NVIL image from ${OCI_BASE_IMAGE}..." && \
+# GITHUB_TOKEN mounted as secret and exported: core.bootstrap.sh runs
+# init/feats/required.install.sh which does many `mise use -g ...` calls
+# hitting GitHub API - unauthenticated (60 req/hr) risks rate-limit failures.
+RUN --mount=type=secret,id=GITHUB_TOKEN,required=true,mode=0444 \
+  export GITHUB_TOKEN="$(cat /run/secrets/GITHUB_TOKEN)" && \
+  export HOMEBREW_GITHUB_API_TOKEN="$GITHUB_TOKEN" && \
+  echo "Creating NVIL image from ${OCI_BASE_IMAGE}..." && \
   # Run pre-bootstrap if present
   if [ -f ./core/pre.bootstrap.sh ]; then \
     bash ./core/pre.bootstrap.sh; \
