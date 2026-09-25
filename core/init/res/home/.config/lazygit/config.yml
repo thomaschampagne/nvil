@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
-# acc-template-version 2026.09.02
+# acc-template-version 2026.09.25
 keybinding:
   commits:
     moveDownCommit: '<alt+j>'
@@ -99,11 +99,23 @@ customCommands:
             description: "Security fixes, vulnerabilities"
             value: "security"
           - name: "devops"
-            description: "DevOps, infrastructure, Docker, Kubernetes, or deployment"
+            description: "DevOps tooling, automation, and operational workflows"
             value: "devops"
+          - name: "infra"
+            description: "Infrastructure as code, cloud resources, networking, or infrastructure configuration"
+            value: "infra"
           - name: "tools"
             description: "Development tools, scripts, CLIs, or utilities"
             value: "tools"
+          - name: "test"
+            description: "Tests, test fixtures, or test infrastructure"
+            value: "test"
+          - name: "deps"
+            description: "Dependencies and dependency updates"
+            value: "deps"
+          - name: "release"
+            description: "Release preparation, versioning, or changelog updates"
+            value: "release"
       - type: "input"
         title: "Summarize change in the imperative present tense (max. 10 words)."
         key: "Description"
@@ -130,28 +142,19 @@ customCommands:
           - name: "Later"
             description: "Want to review or cancel commit. Use 'c' shortcut to edit commit content"
             value: "later"
-    command: >-
-      sh -c "if [ '{{.Form.WhenToCommit}}' = later ]; then
-      printf '%s\n'
-      '{{.Form.Type}}{{if and .Form.Scope (ne .Form.Scope "none")}}({{.Form.Scope}}){{end}}{{if .Form.BreakingBody}}!{{end}}:
-      {{.Form.Description}}'
-      {{if .Form.Body}} '' '{{.Form.Body}}'{{end}}
-      {{if or .Form.BreakingBody .Form.TicketId}}
-      {{if .Form.Body}} ''{{end}}
-      {{if .Form.BreakingBody}} 'BREAKING CHANGE: {{.Form.BreakingBody}}'{{end}}
-      {{if .Form.TicketId}} 'Ref: #{{.Form.TicketId}}'{{end}}
-      {{end}}
+    command: >
+      sh -c "if [ {{.Form.WhenToCommit}} = later ]; then
+      printf '%s\\n'
+      '{{.Form.Type}}{{if and .Form.Scope (ne .Form.Scope "none")}}({{.Form.Scope}}){{end}}{{if .Form.BreakingBody}}!{{end}}: {{.Form.Description}}{{if .Form.TicketId}} (#{{.Form.TicketId}}){{end}}'
+      ''
+      '{{if .Form.BreakingBody}}BREAKING CHANGE: {{.Form.BreakingBody}}{{end}}'
+      {{if .Form.TicketId}}'' 'Ref: #{{.Form.TicketId}}'{{end}}
       > .git/LAZYGIT_PENDING_COMMIT;
       else
-      printf '%s\n'
-      '{{.Form.Type}}{{if and .Form.Scope (ne .Form.Scope "none")}}({{.Form.Scope}}){{end}}{{if .Form.BreakingBody}}!{{end}}:
-      {{.Form.Description}}'
-      {{if .Form.Body}} '' '{{.Form.Body}}'{{end}}
-      {{if or .Form.BreakingBody .Form.TicketId}}
-      {{if .Form.Body}} ''{{end}}
-      {{if .Form.BreakingBody}} 'BREAKING CHANGE: {{.Form.BreakingBody}}'{{end}}
-      {{if .Form.TicketId}} 'Ref: #{{.Form.TicketId}}'{{end}}
-      {{end}}
-      | git commit -F -;
+      git commit
+      --message '{{.Form.Type}}{{if and .Form.Scope (ne .Form.Scope "none")}}({{.Form.Scope}}){{end}}{{if .Form.BreakingBody}}!{{end}}: {{.Form.Description}}{{if .Form.TicketId}} (#{{.Form.TicketId}}){{end}}'
+      {{if .Form.Body}}--message '{{.Form.Body}}'{{end}}
+      {{if .Form.BreakingBody}}--message 'BREAKING CHANGE: {{.Form.BreakingBody}}'{{end}}
+      {{if .Form.TicketId}}--message 'Ref: #{{.Form.TicketId}}'{{end}};
       fi"
     loadingText: "Cooking conventional commit..."
