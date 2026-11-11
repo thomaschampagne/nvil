@@ -21,7 +21,7 @@ Options:
   --arg-file PATH         Set arg file path (default: ./build-args.default.conf)
   --gh-token-file PATH    Path to a file containing the GitHub token (passed as a build secret)
   --runner RUNNER         Container runner to use (docker or podman). If not specified, uses podman if available, otherwise docker.
-  --docker-file FILE      Set Dockerfile path 
+  --docker-file FILE      Set Dockerfile path
   --help                  Show this help message
 EOF
     exit 0
@@ -66,6 +66,10 @@ while [[ $# -gt 0 ]]; do
             runner="$2"
             shift 2
             ;;
+        --docker-file)
+            docker_file="$2"
+            shift 2
+            ;;
         -h | --help)
             show_help
             ;;
@@ -76,6 +80,13 @@ while [[ $# -gt 0 ]]; do
             ;;
     esac
 done
+
+# Strip any stray carriage returns from argument values (e.g. from CRLF shells)
+image="${image//$'\r'/}"
+arg_file_path="${arg_file_path//$'\r'/}"
+github_token_file="${github_token_file//$'\r'/}"
+runner="${runner//$'\r'/}"
+docker_file="${docker_file//$'\r'/}"
 
 # Validate required parameters
 if [ -z "$image" ]; then
@@ -121,6 +132,11 @@ fi
 # Host environment checks
 # ---------------------------------------------------------------------------
 
+# Detect WSL (WSL2 sets WSL_DISTRO_NAME and "microsoft" appears in /proc/version)
+is_wsl() {
+    [ -n "${WSL_DISTRO_NAME:-}" ] || grep -qi microsoft /proc/version 2>/dev/null
+}
+
 # 1. Linux only (real Linux or WSL2). podman.exe/docker.exe (Windows native)
 #    run a separate engine in their own VM: images built there are invisible
 #    to the WSL2 engine and vice versa, and --secret src= breaks (mixed
@@ -141,13 +157,15 @@ EOF
         ;;
 esac
 
-# 2. Must run as root. The build is rootful: the rootful podman engine and its
-#    socket (/run/podman/podman.sock) are what let the Windows host reach the
-#    WSL2 podman store for image sync.
-if [ "$(id -u)" -ne 0 ]; then
-    echo "Error: this script must run as root (current uid: $(id -u), need 0)." >&2
-    echo "Re-run with: sudo \"$0\" $*" >&2
-    exit 1
+# 2. WSL only: must run as root. The build is rootful: the rootful podman engine
+#    and its socket (/run/podman/podman.sock) are what let the Windows host reach
+#    the WSL2 podman store for image sync.
+if is_wsl; then
+    if [ "$(id -u)" -ne 0 ]; then
+        echo "Error: this script must run as root on WSL (current uid: $(id -u), need 0)." >&2
+        echo "Re-run with: sudo \"$0\" $*" >&2
+        exit 1
+    fi
 fi
 
 # 3. Podman only: ensure podman.socket services running. The socket is how the
@@ -183,7 +201,9 @@ else
     echo "No existing container found with name: $image_name"
 fi
 
+# ---------------------------------------------------------------------------
 # Build image
+# ---------------------------------------------------------------------------
 echo "Building image: $image"
 
 # GITHUB_TOKEN is passed to the build as a secret file (--secret ...,src=),
@@ -193,7 +213,7 @@ echo "Building image: $image"
 # separators). Caller supplies the file directly via --gh-token-file.
 $runner build \
     --build-arg OCI_BUILD_DATE="$(date -u '+%Y-%m-%dT%H:%M:%SZ')" \
-    --build-arg OCI_VERSION=$(date +%Y.%m.%d) \
+    --build-arg OCI_VERSION="$(date +%Y.%m.%d)" \
     --build-arg-file "$arg_file_path" \
     --secret id=GITHUB_TOKEN,src="$github_token_file" \
     -f "$docker_file" \
