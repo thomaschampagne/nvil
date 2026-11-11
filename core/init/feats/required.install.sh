@@ -37,6 +37,7 @@ mise use -g \
 mise use -g node@lts
 eval "$(~/.local/bin/mise activate bash)" # Reactivate mise for usage
 # Install PNPM & Configure for bash installs
+npm install -g corepack
 corepack enable
 corepack prepare pnpm@latest --activate
 # Bash setup
