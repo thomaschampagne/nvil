@@ -71,13 +71,20 @@ jobs:
         id: tags
         run: |
           if [[ "${{ github.ref }}" == "refs/heads/dev" ]] || [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-            echo "tags=dev" >> $GITHUB_OUTPUT
+            TAGS="dev"
           elif [[ "${{ github.ref }}" == refs/tags/* ]]; then
-            TAG_NAME="${GITHUB_REF#refs/tags/}"
-            echo "tags=${TAG_NAME}" >> $GITHUB_OUTPUT
+            TAGS="${GITHUB_REF#refs/tags/}"
           else
-            echo "tags=latest,${{ env.BUILD_DATE_SHORT }}" >> $GITHUB_OUTPUT
+            TAGS=$'latest\n${{ env.BUILD_DATE_SHORT }}'
           fi
+          {
+            echo "core_tags<<EOF"
+            while IFS= read -r t; do echo "ghcr.io/${{ github.repository_owner }}/nvil-core:$t"; done <<< "$TAGS"
+            echo "EOF"
+            echo "full_tags<<EOF"
+            while IFS= read -r t; do echo "ghcr.io/${{ github.repository_owner }}/nvil-full:$t"; done <<< "$TAGS"
+            echo "EOF"
+          } >> $GITHUB_OUTPUT
 
       - name: Set NVIL_CORE_IMAGE based on branch
         run: |
@@ -106,8 +113,7 @@ jobs:
           push: true
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          tags: |
-            ghcr.io/${{ github.repository_owner }}/nvil-core:${{ steps.tags.outputs.tags }}
+          tags: ${{ steps.tags.outputs.core_tags }}
 
       - name: Build/Push nvil-full to Github Container Registry
         uses: docker/build-push-action@v7
@@ -128,5 +134,4 @@ jobs:
           push: true
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          tags: |
-            ghcr.io/${{ github.repository_owner }}/nvil-full:${{ steps.tags.outputs.tags }}
+          tags: ${{ steps.tags.outputs.full_tags }}
