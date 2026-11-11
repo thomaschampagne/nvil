@@ -7,4 +7,4 @@ set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
 
-mise use -g "github:ip7z/7zip[exe=7zz,rename_exe=7z]"
+mise use -g 7zip
