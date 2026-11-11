@@ -20,7 +20,7 @@ eval "$(~/.local/bin/mise activate bash)" # Reactivate mise for usage
 # --- Install Required Tools
 mise use -g \
   helix \
-  neovim \
+  aqua:neovim/neovim \
   lazygit \
   yazi \
   zellij \
