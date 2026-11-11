@@ -1,8 +1,4 @@
 #!/bin/bash
-
-# Description: The most customisable and low-latency cross platform/shell prompt renderer.
-# Repo Link: https://github.com/JanDeDobbeleer/oh-my-posh
-
 set -eo pipefail
 
 source /nvil/core/utils/feats.require.sh
@@ -12,18 +8,10 @@ mise use -g oh-my-posh
 OMP_THEME_DIR="${HOME}/.cache/oh-my-posh/themes"
 mkdir -p "${OMP_THEME_DIR}"
 
-echo "Fetching oh-my-posh theme list..."
-AUTH_HEADER=""
-[ -n "$GITHUB_TOKEN" ] && AUTH_HEADER="-H \"Authorization: token $GITHUB_TOKEN\""
-THEMES=$(eval "curl -fsSL $AUTH_HEADER https://api.github.com/repos/JanDeDobbeleer/oh-my-posh/contents/themes" | jq -r '.[].name')
-THEME_COUNT=$(echo "$THEMES" | wc -l)
-echo "Downloading ${THEME_COUNT} themes to ${OMP_THEME_DIR}..."
-for THEME in $THEMES; do
-  [ "$THEME" = "schema.json" ] && continue
-  echo "  Downloading ${THEME}..."
-  eval "curl -fsSL $AUTH_HEADER \"https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/${THEME}\"" \
-    -o "${OMP_THEME_DIR}/${THEME}"
-done
+echo "Downloading oh-my-posh themes..."
+curl -fsSL https://codeload.github.com/JanDeDobbeleer/oh-my-posh/tar.gz/refs/heads/main \
+  | tar -xz --strip-components=2 -C "${OMP_THEME_DIR}" --wildcards '*/themes/*'
+rm -f "${OMP_THEME_DIR}/schema.json"
 echo "Oh My Posh themes downloaded successfully."
 
 echo -e '\n# Append Oh My Posh configuration' >> ~/.zshrc
