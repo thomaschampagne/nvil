@@ -1,9 +1,9 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
-# acc-template-version 2026.09.02
+# version: 2026.10.28+global.default
 keybinding:
   commits:
-    moveDownCommit: '<alt+j>'
-    moveUpCommit: '<alt+k>'
+    moveDownCommit: "<alt+j>"
+    moveUpCommit: "<alt+k>"
 customCommands:
   - key: "x"
     context: "files"
@@ -53,57 +53,69 @@ customCommands:
           - name: "<none>"
             description: "Bypass scope"
             value: "none"
-          - name: "ui"
-            description: "Changes related to the frontend application or UI components"
-            value: "ui"
-          - name: "db"
-            description: "Database schema, queries, migrations, or connection logic"
-            value: "db"
+          - name: "ai"
+            description: "AI/ML models, prompts, embeddings, or LLM integration"
+            value: "ai"
           - name: "api"
             description: "REST controllers endpoints, api service logic, orm persistence"
             value: "api"
           - name: "auth"
             description: "Authentication and authorization logic, tokens, sessions, permissions"
             value: "auth"
-          - name: "style"
-            description: "Styling, themes, layout, or linting in general"
-            value: "style"
-          - name: "core"
-            description: "Core business logic, domain models, or application logic"
-            value: "core"
-          - name: "shared"
-            description: "Shared code, libraries, or utilities used by both frontend and backend"
-            value: "shared"
-          - name: "ci"
-            description: "Continuous integration or deployment pipeline configuration"
-            value: "ci"
-          - name: "docs"
-            description: "Documentation updates, including READMEs and inline docs"
-            value: "docs"
-          - name: "ai"
-            description: "AI/ML models, prompts, embeddings, or LLM integration"
-            value: "ai"
-          - name: "cli"
-            description: "Command-line interfaces, terminals, or shell integrations"
-            value: "cli"
           - name: "build"
             description: "Build system, dependencies, or compilation process"
             value: "build"
+          - name: "ci"
+            description: "Continuous integration or deployment pipeline configuration"
+            value: "ci"
+          - name: "cli"
+            description: "Command-line interfaces, terminals, or shell integrations"
+            value: "cli"
           - name: "config"
             description: "Configuration files, settings, or environment variables"
             value: "config"
-          - name: "types"
-            description: "Type definitions, interfaces, or type safety improvements"
-            value: "types"
+          - name: "core"
+            description: "Core business logic, domain models, or application logic"
+            value: "core"
+          - name: "db"
+            description: "Database schema, queries, migrations, or connection logic"
+            value: "db"
+          - name: "deps"
+            description: "Dependencies and dependency updates"
+            value: "deps"
+          - name: "devops"
+            description: "DevOps tooling, automation, and operational workflows"
+            value: "devops"
+          - name: "docs"
+            description: "Documentation updates, including READMEs and inline docs"
+            value: "docs"
+          - name: "infra"
+            description: "Infrastructure as code, cloud resources, networking, or infrastructure configuration"
+            value: "infra"
+          - name: "release"
+            description: "Release preparation, versioning, or changelog updates"
+            value: "release"
           - name: "security"
             description: "Security fixes, vulnerabilities"
             value: "security"
-          - name: "devops"
-            description: "DevOps, infrastructure, Docker, Kubernetes, or deployment"
-            value: "devops"
+          - name: "shared"
+            description: "Shared code, libraries, or utilities used by both frontend and backend"
+            value: "shared"
+          - name: "style"
+            description: "Styling, themes, layout, or linting in general"
+            value: "style"
+          - name: "test"
+            description: "Tests, test fixtures, or test infrastructure"
+            value: "test"
           - name: "tools"
             description: "Development tools, scripts, CLIs, or utilities"
             value: "tools"
+          - name: "types"
+            description: "Type definitions, interfaces, or type safety improvements"
+            value: "types"
+          - name: "ui"
+            description: "Changes related to the frontend application or UI components"
+            value: "ui"
       - type: "input"
         title: "Summarize change in the imperative present tense (max. 10 words)."
         key: "Description"
@@ -130,28 +142,21 @@ customCommands:
           - name: "Later"
             description: "Want to review or cancel commit. Use 'c' shortcut to edit commit content"
             value: "later"
-    command: >-
-      sh -c "if [ '{{.Form.WhenToCommit}}' = later ]; then
-      printf '%s\n'
-      '{{.Form.Type}}{{if and .Form.Scope (ne .Form.Scope "none")}}({{.Form.Scope}}){{end}}{{if .Form.BreakingBody}}!{{end}}:
-      {{.Form.Description}}'
-      {{if .Form.Body}} '' '{{.Form.Body}}'{{end}}
-      {{if or .Form.BreakingBody .Form.TicketId}}
-      {{if .Form.Body}} ''{{end}}
-      {{if .Form.BreakingBody}} 'BREAKING CHANGE: {{.Form.BreakingBody}}'{{end}}
-      {{if .Form.TicketId}} 'Ref: #{{.Form.TicketId}}'{{end}}
-      {{end}}
-      > .git/LAZYGIT_PENDING_COMMIT;
-      else
-      printf '%s\n'
-      '{{.Form.Type}}{{if and .Form.Scope (ne .Form.Scope "none")}}({{.Form.Scope}}){{end}}{{if .Form.BreakingBody}}!{{end}}:
-      {{.Form.Description}}'
-      {{if .Form.Body}} '' '{{.Form.Body}}'{{end}}
-      {{if or .Form.BreakingBody .Form.TicketId}}
-      {{if .Form.Body}} ''{{end}}
-      {{if .Form.BreakingBody}} 'BREAKING CHANGE: {{.Form.BreakingBody}}'{{end}}
-      {{if .Form.TicketId}} 'Ref: #{{.Form.TicketId}}'{{end}}
-      {{end}}
-      | git commit -F -;
-      fi"
+    command: >
+      {{- $scope := "" -}}
+      {{- if and .Form.Scope (ne .Form.Scope "none") }}{{ $scope = printf "(%s)" .Form.Scope }}{{ end -}}
+      {{- $bang := "" }}{{ if .Form.BreakingBody }}{{ $bang = "!" }}{{ end -}}
+      {{- $ticket := "" }}{{ if .Form.TicketId }}{{ $ticket = printf " (#%s)" .Form.TicketId }}{{ end -}}
+      {{- $title := printf "%s%s%s: %s%s" .Form.Type $scope $bang .Form.Description $ticket -}}
+      {{- if eq .Form.WhenToCommit "now" -}}
+      git commit --message {{ $title | quote }}
+      {{- if .Form.Body }} --message {{ .Form.Body | quote }}{{ end }}
+      {{- if .Form.BreakingBody }} --message {{ printf "BREAKING CHANGE: %s" .Form.BreakingBody | quote }}{{ end }}
+      {{- if .Form.TicketId }} --message {{ printf "Ref: #%s" .Form.TicketId | quote }}{{ end }}
+      {{- else -}}
+      printf "%s\n" {{ $title | quote }} ""
+      {{- if .Form.BreakingBody }} {{ printf "BREAKING CHANGE: %s" .Form.BreakingBody | quote }}{{ end }}
+      {{- if .Form.TicketId }} "" {{ printf "Ref: #%s" .Form.TicketId | quote }}{{ end }}
+      > .git/LAZYGIT_PENDING_COMMIT
+      {{- end }}
     loadingText: "Cooking conventional commit..."
